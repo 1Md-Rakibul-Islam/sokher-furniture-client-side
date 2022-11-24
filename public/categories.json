@@ -1,0 +1,20 @@
+[
+    {   
+        "_id": 1,
+        "categoriyName": "Bedroom",
+        "image": "https://static3.depositphotos.com/1009784/255/i/600/depositphotos_2559186-stock-photo-black-and-blue-master-bedroom.jpg",
+        "decription": "Shop bedroom sets and other antique and vintage collectibles from top sellers and makers around the world. Global shipping available."
+    },
+    {
+        "_id": 2,
+        "categoriyName": "Office",
+        "image": "https://static8.depositphotos.com/1000205/956/i/600/depositphotos_9563351-stock-photo-monitor-on-a-desk.jpg",
+        "decription": "Retro style office room with wooden table, old chairs and cabinets. Vintage theme. Antique chair, old typewriter, retro radio, gramophone on wooden desk"
+    },
+    {
+        "_id": 3,
+        "categoriyName": "Dining & Kitchen",
+        "image": "https://media.istockphoto.com/id/182746390/photo/dining-room-of-a-traditional-victorian-home-interior.jpg?s=612x612&w=0&k=20&c=a8OUd2B7ylpEidUKP6_6vlMYdF-HGLWWUl7HZF8z5mg=",
+        "decription": "Find the best Old Kitchen and dining furniture"
+    }
+]

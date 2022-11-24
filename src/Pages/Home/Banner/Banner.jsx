@@ -5,19 +5,25 @@ const Bannder = () => {
     const bannerData = [
         {   
             id: 1,
-            image: 'https://cdn.dal.ca/faculty/dentistry/_jcr_content/contentPar/featureslider/featureSlider/featureslide_0/image.adaptive.620.high.jpg/1471286172129.jpg',
+            image: 'http://caketheme.com/html/ruper/media/banner/parallax.jpg',
+            title: 'Chair Collection',
+            Decription: 'Hot stuff, new stuff, fun stuff, soon be your stuff?',
             prev: 3,
             next: 2
         },
         {   
             id: 2,
-            image: 'https://clydemunrodental.com/wp-content/uploads/2022/05/CLYDE-MONROE-GLASGOW1862_LR-e1651684633183.jpg?bp=w1400&id=25129',
+            image: 'http://caketheme.com/html/ruper/media/slider/28.jpg',
             prev: 1,
+            title: 'Easy Living',
+            Decription: 'Hot stuff, new stuff, fun stuff, soon be your stuff?',
             next: 3
         },
         {   
             id: 3,
-            image: 'https://cdn-prod.medicalnewstoday.com/content/images/articles/327/327515/an-infographic-showing-how-dental-implants-work.jpg',
+            image: 'http://caketheme.com/html/ruper/media/slider/29.jpg',
+            title: 'Very low of coast',
+            Decription: 'Hot stuff, new stuff, fun stuff, soon be your stuff?',
             prev: 2,
             next: 1
         },
