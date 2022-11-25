@@ -8,12 +8,18 @@ import Categories from "../../Pages/Categories/Categories";
 import Page404 from "../../Pages/Shared/404/Page404";
 import Blogs from "../../Pages/Blogs/Blogs";
 import SellerRoute from "../SellerRoute/SellerRoute";
-import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashboardLayout from "../../Layout/DashboardLayout";
-import MyProducts from "../../Pages/Dashboard/BuyersDashboard/MyProducts/MyProducts";
-import MyBuyers from "../../Pages/Dashboard/BuyersDashboard/MyBuyers/MyBuyers";
+import MyBuyers from "../../Pages/Dashboard/SellerDashboard/MyBuyers/MyBuyers";
+import BuyerRoute from "../BuyerRoute/BuyerRoute";
+import AllSellers from "../../Pages/Dashboard/AdminDashboard/AllSellers/AllSellers";
+import AllUsers from "../../Pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
+import ReportedItems from "../../Pages/Dashboard/AdminDashboard/ReportedItems/ReportedItems";
+import Wishlist from "../../Pages/Dashboard/BuyerDashboard/Wishlist/Wishlist";
+import AddProduct from "../../Pages/Dashboard/SellerDashboard/AddProduct/AddProduct";
+import MyProducts from "../../Pages/Dashboard/SellerDashboard/MyProducts/MyProducts";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -59,18 +65,16 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: <Dashboard></Dashboard>
       },
+
       {
-        path: '/dashboard/buyer/addProduct',
-        element: <><AddProduct></AddProduct></>
+        path: '/dashboard/buyer/wishlist',
+        element: <BuyerRoute><Wishlist></Wishlist></BuyerRoute>
       },
       {
-        path: '/dashboard/buyer/myProducts',
-        element: <><MyProducts></MyProducts></>
+        path: '/dashboard/buyer/myOrders',
+        element: <BuyerRoute><MyProducts></MyProducts></BuyerRoute>
       },
-      {
-        path: '/dashboard/buyer/myBuyers',
-        element: <><MyBuyers></MyBuyers></>
-      },
+
       {
         path: '/dashboard/seller/addProduct',
         element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
@@ -83,6 +87,20 @@ export const router = createBrowserRouter([
         path: '/dashboard/seller/myBuyers',
         element: <SellerRoute><MyBuyers></MyBuyers></SellerRoute>
       },
+     
+      {
+        path: '/dashboard/admin/allSellrs',
+        element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
+      },
+      {
+        path: '/dashboard/admin/allUsers',
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path: '/dashboard/admin/reportedItems',
+        element: <AdminRoute><ReportedItems></ReportedItems></AdminRoute>
+      }
+
       // {
       //   path: '/dashboard/managedoctors',
       //   element: <AdminRoute><ManageDoctors></ManageDoctors></AdminRoute>
