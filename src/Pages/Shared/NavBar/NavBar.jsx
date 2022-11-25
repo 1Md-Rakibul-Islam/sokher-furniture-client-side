@@ -96,6 +96,12 @@ const NavBar = () => {
             <li>
               <a className="justify-between">Profile</a>
             </li>
+            <li>
+              <a className="justify-between">{user?.displayName}</a>
+            </li>
+            <li>
+              <a className="justify-between">{user?.email}</a>
+            </li>
             {user?.email ? (
               <li>
                 <button onClick={handelLogOut}>Logout</button>
