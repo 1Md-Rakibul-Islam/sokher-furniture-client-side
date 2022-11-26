@@ -4,6 +4,7 @@ import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 import useAdmin from '../Hooks/useAdmin';
 import useBuyer from '../Hooks/useBuyer';
 import useSeller from '../Hooks/useSeller';
+import Loading from '../Pages/Shared/Loading/Loading';
 import NavBar from '../Pages/Shared/NavBar/NavBar';
 
 
@@ -13,6 +14,10 @@ const DashboardLayout = () => {
     const [isSeller, isSellerLoading] = useSeller(user?.email);
     const [isAdmin, isAdminLoading] = useAdmin(user?.email);
     console.log(isAdmin);
+
+    if(isBuyerLoading || isSellerLoading || isAdminLoading){
+        return <Loading></Loading>
+    }
 
     return (
         <div>

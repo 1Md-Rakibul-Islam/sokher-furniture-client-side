@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
@@ -83,14 +82,14 @@ const AddProduct = () => {
   return (
     <div className="">
       <div className="hero-content my-10 mx-auto">
-        <div className="card w-full max-w-5xl shadow-2xl bg-base-500">
+        <div className="card w-full shadow-2xl bg-base-500">
           <h1 className="text-4xl mt-5 text-center font-bold">Add Product</h1>
           <form onSubmit={handleSubmit(handelAddProduct)} className="card-body">
             <div className=" grid gap-3 grid-cols-1 md:grid-cols-3">
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Product Name</span>
+                  <span >Product Name</span>
                 </label>
                 <input {...register('name', {
                   required: 'Product Name required'
@@ -98,7 +97,7 @@ const AddProduct = () => {
                 {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
               </div>
 
-              <div className="form-control w-full mt-5">
+              <div className="form-control ">
                   <label htmlFor="label"> <span>Product Photo</span></label>
                   <input {...register('photo', {
                     required: 'Product photo required'
@@ -106,13 +105,13 @@ const AddProduct = () => {
                   {errors?.email && <small className='text-error mt-2'>{errors.email?.message}</small>}
               </div>
 
-              <div className="form-control w-full mt-5">
+              <div className="form-control ">
                   <label htmlFor="label"> <span>Categories</span></label>
                   <select 
                     {...register('category', {
                       required: true
                     })}
-                    className="select select-bordered mt-5">
+                    className="select select-bordered ">
                     <option disabled selected>Whis is chategoriy this product?</option>
                     <option value='Bedroom' >Bedroom</option>
                     <option value='Office' >Office</option>
