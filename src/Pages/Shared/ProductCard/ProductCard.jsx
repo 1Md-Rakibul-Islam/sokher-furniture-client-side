@@ -1,27 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { FaDollarSign, FaMapMarkerAlt, FaRegClock, FaUserClock } from 'react-icons/fa';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import BookingModal from '../BookingModal/BookingModal';
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product, handelBooking}) => {
     const { _id , category, name, photo, location, originalPrice, reselPrice, useDuration, decription, sellerEmail, publish} = product;
 
+
+
     return (
-        <div className="card lg:w-96 w-80 glass shadow-xl">
+        <div className="card glass shadow-xl">
             <figure>
                 <PhotoProvider>
                     <PhotoView  key={_id} src={photo}>
-                        <img src={photo} alt="product" />
+                        <img className="w-full h-80" src={photo} alt="product" />
                     </PhotoView>
                 </PhotoProvider>
             </figure>
             <div className="card-body">
                 <h2 className="card-title">
                     {name}
-                    <div className="badge badge-warning">
+                    <div className="badge badge-lg badge-warning">
                         Category: {category}
-                        <input type="radio" name="rating-1" className="mask mask-star" checked />
                     </div>
                 </h2>
                 <p>
@@ -29,14 +31,33 @@ const ProductCard = ({product}) => {
                         decription.length > 50? decription.slice(0, 110) + '.....' : decription
                     }
                 </p>
+                <div className='flex items-center gap-4'>
+                    <FaRegClock></FaRegClock><span>Publish: {publish}</span>       
+                </div>
+                <div className='flex items-center gap-4'>
+                <FaMapMarkerAlt></FaMapMarkerAlt><span>Location: {location}</span>       
+                </div>
+                
+                <div className='flex items-center gap-4'>
+                    <FaDollarSign></FaDollarSign><span>Original Price: {reselPrice}</span>       
+                </div>
+
+                <div className='flex items-center gap-4'>
+                    <FaUserClock></FaUserClock><span>Used: {useDuration}</span>       
+                </div>
+                
                 <div className="flex justify-between items-center">
                     <div className="badge p-2 badge-secondary">
-                        <p>Resel Price: {reselPrice}</p>
+                        <FaDollarSign></FaDollarSign><span>Price: {originalPrice}</span>
                     </div> 
-                    <Link to={`/product/${_id}`}>
-                    <button className="btn btn-primary ">Details</button>
-                    </Link>
+                    <label onClick={() => handelBooking(product)} htmlFor="booking-modal" className="btn btn-primary text-white">Book Now</label>
+                    
+
+                    {/* <Link to={`/product/${_id}`}>
+                        <button className="btn btn-primary ">Book Now</button>
+                    </Link> */}
                 </div>
+
             </div>
         </div>
     );
