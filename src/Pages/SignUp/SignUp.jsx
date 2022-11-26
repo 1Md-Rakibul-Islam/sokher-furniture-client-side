@@ -35,8 +35,6 @@ const SignUp = () => {
       .then( result => {
         const user = result.user;
         console.log(user);
-        
-        toast.success('User created Successfully');
 
         const image = data.photo[0];
         const formData = new FormData();
@@ -96,6 +94,7 @@ const SignUp = () => {
       .then(data => {
         console.log('save user', data);
         setCreatedUserEmail(email);
+        toast.success('User created Successfully');
         console.log(email)
       })
     }
