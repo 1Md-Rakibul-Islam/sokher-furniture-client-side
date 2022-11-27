@@ -1,23 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../../Context/AuthProvider/AuthProvider';
+import useDelete from '../../../../Hooks/useDelete';
 import Loading from '../../../Shared/Loading/Loading';
 
 const MyProducts = () => {
     const {user} = useContext(AuthContext);
-
-    // const {data: doctors, isLoading, refetch} = useQuery({
-    //     queryKey: ['doctors'],
-    //     queryFn: async() => {
-    //         const res = await fetch('http://localhost:5000/doctors', {
-    //             headers: {
-    //                 authorization: `bearer ${localStorage.getItem('accessToken')}`
-    //             }
-    //         })
-    //         const data = await res.json();
-    //         return data;
-    //     }
-    // })
 
 
     const {data: products, isLoading, refetch} = useQuery({
@@ -31,6 +19,10 @@ const MyProducts = () => {
 
     if(isLoading){
         return <Loading></Loading>
+    }
+
+    const handelAdvertisigProduct = _id => {
+        console.log(_id);
     }
 
     // _id , category, name, photo, location, originalPrice, reselPrice, useDuration, decription, sellerEmail, publish
@@ -53,7 +45,7 @@ const MyProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map( (product, i) =>  <tr>
+                            products.map( (product, i) => <tr>
                                 <th>{1 + i}</th>
                                 <th>
                                     <div className="avatar">
@@ -67,7 +59,10 @@ const MyProducts = () => {
                                 <td>{product.reselPrice} TK</td>
                                 <td>{product.publish}</td>
                                 <td>
-                                    <label onClick={() => setDeletingDoctor(doctor)} htmlFor="confirmation-modal" className="btn btn-sm btn-success">Advertisig</label>
+                                    <button onClick={() => handelAdvertisigProduct(product._id)} className="btn btn-sm btn-success">Advertisig</button>
+                                </td>
+                                <td>
+                                    <button onClick={() => useDelete(product._id, refetch)} className="btn btn-sm btn-error">Delete</button>
                                 </td>
                                 
                             </tr>)

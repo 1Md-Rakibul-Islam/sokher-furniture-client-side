@@ -8,6 +8,7 @@ import ProductCard from '../Shared/ProductCard/ProductCard';
 const Categories = () => {
 
     const products = useLoaderData();
+    
     const [product, setProduct] = useState({})
 
     if (!products.length > 0){
@@ -15,7 +16,6 @@ const Categories = () => {
     }
 
     const handelBooking = (product) => {
-      console.log(product);
       setProduct(product)
       
     }

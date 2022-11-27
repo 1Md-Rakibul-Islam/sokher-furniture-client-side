@@ -36,7 +36,7 @@ const AddProduct = () => {
     .then(res => res.json())
     .then(imageData => {
       if(imageData.status){
-
+        setLoading(true);
         saveUser(data.category, data.name, imageData.data.url, data.location, data.originalPrice, data.reselPrice, data.useDuration, data.decription, data.sellerEmail, data.publish)
 
       }
@@ -74,7 +74,9 @@ const AddProduct = () => {
       .then(res => res.json())
       .then(data => {
         console.log('save user', data);
+        setLoading(false)
         toast.success('Product publish Successfully');
+        navigate('/dashboard/seller/myProducts')
       })
   }
 
