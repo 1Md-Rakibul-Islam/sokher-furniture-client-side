@@ -4,19 +4,21 @@ import { FaDollarSign, FaMapMarkerAlt, FaRegClock, FaUserClock } from 'react-ico
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import useBuyer from '../../../Hooks/useBuyer';
+import useBooking from '../../../Hooks/useBooking';
 import Loading from '../Loading/Loading';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import useSeller from '../../../Hooks/useSeller';
+import { useQuery } from '@tanstack/react-query';
 
 const ProductCard = ({product, handelBooking}) => {
     const { _id , category, name, photo, location, originalPrice, reselPrice, useDuration, decription, sellerEmail, publish} = product;
 
     const { user } = useContext(AuthContext);
-
     const [isBuyer, isBuyerLoading] = useBuyer(user?.email);
-
+    const [isBooking, isBookingLoading] = useBooking(_id);
     
-    if(isBuyerLoading){
+
+    if(isBuyerLoading && isBookingLoading){
         return <Loading></Loading>
     }
 
@@ -64,8 +66,13 @@ const ProductCard = ({product, handelBooking}) => {
                     {
                         isBuyer &&
                         <label onClick={() => handelBooking(product)} htmlFor="booking-modal"
-                        className="btn btn-primary text-white">Book Now</label>
+                        className={`btn btn-primary text-white ${isBooking && 'hidden'}`}>{isBooking ? 'Booked' : 'Booking'}</label>
                         
+                    }
+
+                    {
+                        isBooking &&
+                        <button className='btn btn-primary' disabled>Booked</button>
                     }
                     
 
