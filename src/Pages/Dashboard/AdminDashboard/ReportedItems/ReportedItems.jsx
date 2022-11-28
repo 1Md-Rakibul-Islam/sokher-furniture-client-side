@@ -1,13 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
+ import toast from "react-hot-toast";
 import React, { useContext } from 'react';
 import Loading from '../../../Shared/Loading/Loading';
+import useDelete from '../../../../Hooks/useDelete';
 
 const ReportedItems = () => {
 
-    const {data: products, isLoading, refetch} = useQuery({
-        queryKey: ['product'],
+    const {data: reportedProducts, isLoading, refetch} = useQuery({
+        queryKey: ['reportedProducts'],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/products/reported`)
+            const res = await fetch('http://localhost:5000/product/report')
             const data = await res.json();
             return data;
         }
@@ -17,14 +19,24 @@ const ReportedItems = () => {
         return <Loading></Loading>
     }
 
-    const handleDeleteRepotedProduct = () => {
-        console.log();
+    const handleDeleteRepotedProduct = (reportedProductId, reportId) => {
+        useDelete(reportedProductId, refetch);
+        reportDelete(reportId);
+        refetch();
     }
 
-    // _id , category, name, photo, location, originalPrice, reselPrice, useDuration, decription, sellerEmail, publish
+    const reportDelete = reportId => {
+        fetch(`http://localhost:5000/product/report/${reportId}`, {
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data => {})
+    };
+ 
+
     return (
         <div>
-            <h2 className='text-3xl mb-10'>Reported Products: {products.length}</h2>
+            <h2 className='text-3xl mb-10'>Reported Products: {reportedProducts.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
@@ -32,15 +44,17 @@ const ReportedItems = () => {
                         <th></th>
                         <th>Photo</th>
                         <th>Name</th>
-                        <th>Status</th>
                         <th>Price</th>
+                        <th>Used</th>
+                        <th>Seller</th>
+                        <th>Repoter</th>
                         <th>Delete</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
                         {
-                            products.map( (product, i) =>  <tr>
+                            reportedProducts.map( (product, i) =>  <tr>
                                 <th>{1 + i}</th>
                                 <th>
                                     <div className="avatar">
@@ -50,11 +64,18 @@ const ReportedItems = () => {
                                     </div>
                                 </th>
                                 <td>{product.name}</td>
-                                <td>{product.status}</td>
                                 <td>{product.reselPrice} TK</td>
-                                <td>{product.publish}</td>
+                                <td>{product.useDuration}</td>
                                 <td>
-                                    <button onClick={handleDeleteRepotedProduct} className="btn btn-sm btn-error">Delete</button>
+                                    <h5>{product.sellerName}</h5>
+                                    <h5>{product.sellerEmail}</h5>
+                                </td>
+                                <td>
+                                    <h5>{product.repoterName}</h5>
+                                    <h5>{product.repoterEmail}</h5>
+                                </td>
+                                <td>
+                                    <button onClick={() => handleDeleteRepotedProduct(product.reportedProductId, product._id)} className="btn btn-sm btn-error">Delete</button>
                                 </td>
                                 
                             </tr>)

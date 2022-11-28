@@ -11,7 +11,7 @@ import useSeller from '../../../Hooks/useSeller';
 import { useQuery } from '@tanstack/react-query';
 
 const ProductCard = ({product, handelBooking}) => {
-    const { _id , category, name, photo, location, originalPrice, reselPrice, useDuration, decription, sellerEmail, publish} = product;
+    const { _id , category, name, photo, location, originalPrice, reselPrice, useDuration, decription, sellerName, sellerEmail, sellerPhoto, publish} = product;
 
     const { user } = useContext(AuthContext);
     const [isBuyer, isBuyerLoading] = useBuyer(user?.email);
@@ -22,9 +22,41 @@ const ProductCard = ({product, handelBooking}) => {
         return <Loading></Loading>
     }
 
+    const handleReport = _id => {
+        
+        window.confirm('Are you sure report the product? Yes?No')
+
+        const reportedProduct = {
+            reportedProductId: _id ,
+            name,
+            photo,
+            reselPrice,
+            useDuration,
+            sellerName,
+            sellerEmail,
+            repoterEmail: user.email,
+            repoterName: user.displayName
+        }
+
+        fetch('http://localhost:5000/product/report', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                // authorization: `bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(reportedProduct)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+        // console.log(reportedProduct);
+
+    }
+
 
     return (
-        <div className="card glass shadow-xl">
+        <div className="card max-w-96 glass shadow-xl">
             <figure>
                 <PhotoProvider>
                     <PhotoView  key={_id} src={photo}>
@@ -58,11 +90,29 @@ const ProductCard = ({product, handelBooking}) => {
                 <div className='flex items-center gap-4'>
                     <FaUserClock></FaUserClock><span>Used: {useDuration}</span>       
                 </div>
+
+                <div className="badge p-2 badge-secondary">
+                    <FaDollarSign></FaDollarSign><span>Price: {originalPrice}</span>
+                </div> 
+
+
+                <div className='flex gap-4'>
+                    
+                    <div className="avatar">
+                    <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <img src={sellerPhoto} alt='' />
+                    </div>
+                    </div>
+                    <div className='flex flex-col my-2'>
+                    <h2 className="text-3px font-bold">Seller: {sellerName ? sellerName : 'Not Found'}</h2>
+                    <p className='text-primary m-0'>Email: {sellerEmail}</p>
+                    </div>
+                </div>
                 
                 <div className="flex justify-between items-center">
-                    <div className="badge p-2 badge-secondary">
-                        <FaDollarSign></FaDollarSign><span>Price: {originalPrice}</span>
-                    </div> 
+                    <div className='mt-2'>
+                        <button onClick={() => handleReport(_id)} className='btn btn-outline btn-error btn-sm'>Report</button>       
+                    </div>
                     {
                         isBuyer &&
                         <label onClick={() => handelBooking(product)} htmlFor="booking-modal"
@@ -71,7 +121,7 @@ const ProductCard = ({product, handelBooking}) => {
                     }
 
                     {
-                        isBooking &&
+                        isBooking && isBuyer &&
                         <button className='btn btn-primary' disabled>Booked</button>
                     }
                     

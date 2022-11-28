@@ -22,7 +22,6 @@ const AddProduct = () => {
 
 
   const handelAddProduct = data => {
-    console.log(data);
 
     const image = data.photo[0];
     const formData = new FormData();
@@ -36,8 +35,8 @@ const AddProduct = () => {
     .then(res => res.json())
     .then(imageData => {
       if(imageData.status){
-        setLoading(true);
-        saveUser(data.category, data.name, imageData.data.url, data.location, data.originalPrice, data.reselPrice, data.useDuration, data.decription, data.sellerEmail, data.publish)
+        // setLoading(true);
+        saveUser(data.category, data.name, imageData.data.url, data.location, data.originalPrice, data.productCondition, data.reselPrice, data.useDuration, data.decription, data.sellerEmail, data.sellerName, user.photoURL, data.publish)
 
       }
     })
@@ -45,7 +44,7 @@ const AddProduct = () => {
   };
 
 
-  const saveUser = (category, name, photo, location, originalPrice, reselPrice, useDuration, decription, sellerEmail, publish) => {
+  const saveUser = (category, name, photo, location, originalPrice, productCondition, reselPrice, useDuration, decription, sellerEmail, sellerName, sellerPhoto, publish) => {
 
     const product = {
       category,
@@ -53,10 +52,13 @@ const AddProduct = () => {
       photo,
       location,
       originalPrice,
+      productCondition,
       reselPrice,
       useDuration,
       decription,
       sellerEmail,
+      sellerName,
+      sellerPhoto,
       publish,
       status: 'available'
     }
@@ -74,7 +76,7 @@ const AddProduct = () => {
       .then(res => res.json())
       .then(data => {
         console.log('save user', data);
-        setLoading(false)
+        // setLoading(false)
         toast.success('Product publish Successfully');
         navigate('/dashboard/seller/myProducts')
       })
@@ -99,8 +101,18 @@ const AddProduct = () => {
                 {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
               </div>
 
+              <div className="form-control">
+                <label className="label">
+                  <span >Seller Name</span>
+                </label>
+                <input {...register('sellerName', {
+                  required: 'Seller Name required'
+                })} type="text" placeholder="Product name" defaultValue={user.displayName} className="input input-bordered" />
+                {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
+              </div>
+
               <div className="form-control ">
-                  <label htmlFor="label"> <span>Product Photo</span></label>
+                  <label className="label"> <span>Product Photo</span></label>
                   <input {...register('photo', {
                     required: 'Product photo required'
                   })} type="file" placeholder="photo" className="file-input file-input-bordered" />
@@ -108,7 +120,7 @@ const AddProduct = () => {
               </div>
 
               <div className="form-control ">
-                  <label htmlFor="label"> <span>Categories</span></label>
+                  <label className="label"> <span>Categories</span></label>
                   <select 
                     {...register('category', {
                       required: true
@@ -118,6 +130,21 @@ const AddProduct = () => {
                     <option value='Bedroom' >Bedroom</option>
                     <option value='Office' >Office</option>
                     <option value='Bedroom' >Dining & Kitchen</option>
+
+                  </select>
+                  {errors?.email && <small className='text-error mt-2'>{errors.email?.message}</small>}
+              </div>
+
+              <div className="form-control ">
+                  <label className="label"> <span>Condition of Product</span></label>
+                  <select 
+                    {...register('productCondition', {
+                      required: true
+                    })}
+                    className="select select-bordered ">
+                    <option value='Good' selected>Good</option>
+                    <option value='Excellent' >Excellent</option>
+                    <option value='Fair' >Fair</option>
 
                   </select>
                   {errors?.email && <small className='text-error mt-2'>{errors.email?.message}</small>}

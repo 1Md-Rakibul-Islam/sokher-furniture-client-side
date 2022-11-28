@@ -55,7 +55,7 @@ const MyProducts = () => {
                                     </div>
                                 </th>
                                 <td>{product.name}</td>
-                                <td>{product.reselPrice}</td>
+                                <td>{product.reselPrice} TK</td>
                                 <td>
                                     <Link to={`/payment/${product._id}`}>
                                         <button className="btn btn-sm btn-secondary">Pay</button>

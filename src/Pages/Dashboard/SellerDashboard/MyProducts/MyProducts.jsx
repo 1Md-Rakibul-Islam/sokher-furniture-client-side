@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../Context/AuthProvider/AuthProvider';
 import useDelete from '../../../../Hooks/useDelete';
 import Loading from '../../../Shared/Loading/Loading';
@@ -22,7 +23,19 @@ const MyProducts = () => {
     }
 
     const handelAdvertisigProduct = _id => {
-        console.log(_id);
+
+        fetch(`http://localhost:5000/seller/advertising/product/${_id}`, {
+            method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount > 0 ){
+                toast.success('advertising successfull')
+                refetch()
+            }
+            console.log(data);
+        })
+        console.log(_id)
     }
 
     // _id , category, name, photo, location, originalPrice, reselPrice, useDuration, decription, sellerEmail, publish
@@ -59,7 +72,7 @@ const MyProducts = () => {
                                 <td>{product.reselPrice} TK</td>
                                 <td>{product.publish}</td>
                                 <td>
-                                    <button onClick={() => handelAdvertisigProduct(product._id)} className="btn btn-sm btn-success">Advertisig</button>
+                                    <button onClick={() => handelAdvertisigProduct(product._id, refetch)} className="btn btn-sm btn-success">{product.AdStatus ? product.AdStatus : 'Advertising'}</button>
                                 </td>
                                 <td>
                                     <button onClick={() => useDelete(product._id, refetch)} className="btn btn-sm btn-error">Delete</button>
