@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../Context/AuthProvider/AuthProvider';
+import useAdUpdate from '../../../../Hooks/useAdUpdate';
 import useDelete from '../../../../Hooks/useDelete';
 import Loading from '../../../Shared/Loading/Loading';
 
@@ -24,17 +25,40 @@ const MyProducts = () => {
 
     const handelAdvertisigProduct = _id => {
 
-        fetch(`http://localhost:5000/seller/advertising/product/${_id}`, {
-            method: 'PATCH'
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount > 0 ){
-                toast.success('advertising successfull')
-                refetch()
-            }
-            console.log(data);
-        })
+        if(!_id){
+            return <Loading></Loading>
+        }
+
+        // fetch(`http://localhost:5000/seller/advertising/product/${_id}`, {
+        //     method: 'PUT'
+        // })
+        // .then(res => res.json())
+        // .then(data => {
+        //     if(data.modifiedCount > 0 ){
+        //         toast.success('advertising successfull')
+        //         refetch()
+        //     }
+        //     console.log(data);
+        // })
+
+        // AdStatus
+        // fetch(`http://localhost:5000/seller/advertising/product/${_id}`, {
+        //     method: "PATCH",
+        //     headers: {
+        //       "content-type": "application/json",
+        //     },
+        //     body: JSON.stringify({AdStatus: 'advertised'}),
+        //   })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //       console.log(data);
+        //       if (data.acknowledged) {
+        //         toast.success('advertising successfull');
+        //       }
+        //     })
+        //     .catch((err) => console.error(err));
+
+
         console.log(_id)
     }
 
@@ -52,6 +76,7 @@ const MyProducts = () => {
                         <th>Status</th>
                         <th>Price</th>
                         <th>Publish</th>
+                        <th>Status</th>
                         <th>Advertisig</th>
                         <th></th>
                     </tr>
@@ -71,8 +96,9 @@ const MyProducts = () => {
                                 <td>{product.status}</td>
                                 <td>{product.reselPrice} TK</td>
                                 <td>{product.publish}</td>
+                                <td>{product.status}</td>
                                 <td>
-                                    <button onClick={() => handelAdvertisigProduct(product._id, refetch)} className="btn btn-sm btn-success">{product.AdStatus ? product.AdStatus : 'Advertising'}</button>
+                                    <button onClick={() => useAdUpdate(product._id, refetch)} className="btn btn-sm btn-success">{product.AdStatus ? product.AdStatus : 'Advertising'}</button>
                                 </td>
                                 <td>
                                     <button onClick={() => useDelete(product._id, refetch)} className="btn btn-sm btn-error">Delete</button>

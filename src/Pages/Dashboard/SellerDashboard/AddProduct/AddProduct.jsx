@@ -60,7 +60,8 @@ const AddProduct = () => {
       sellerName,
       sellerPhoto,
       publish,
-      status: 'available'
+      status: 'available',
+      AdStatus: 'no advertising'
     }
 
     // console.log( 'saveUser', user);
