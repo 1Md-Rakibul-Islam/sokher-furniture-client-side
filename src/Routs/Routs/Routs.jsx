@@ -33,8 +33,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/categories/:categoriyName",
-        loader: async ({params}) => await fetch(`http://localhost:5000/categories/${params.categoriyName}`),
-        element: <Categories></Categories>
+        loader: async ({ params }) => await fetch(`https://sokher-furniture.vercel.app/categories/${params.categoriyName}`),
+        element: <Categories></Categories>,
       },
       {
         path: "/blogs",
@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/signup",
-        element: <SignUp></SignUp>
+        element: <SignUp></SignUp>,
       },
       {
         path: "/login",
@@ -54,53 +54,89 @@ export const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <Page404></Page404>
+        element: <Page404></Page404>,
       },
     ],
   },
   {
-    path: '/dashboard',
-    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
-        path: '/dashboard',
-        element: <Dashboard></Dashboard>
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
       },
 
       {
-        path: '/dashboard/buyer/wishlist',
-        element: <BuyerRoute><Wishlist></Wishlist></BuyerRoute>
+        path: "/dashboard/buyer/wishlist",
+        element: (
+          <BuyerRoute>
+            <Wishlist></Wishlist>
+          </BuyerRoute>
+        ),
       },
       {
-        path: '/dashboard/buyer/myOrders',
-        element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
+        path: "/dashboard/buyer/myOrders",
+        element: (
+          <BuyerRoute>
+            <MyOrders></MyOrders>
+          </BuyerRoute>
+        ),
       },
 
       {
-        path: '/dashboard/seller/addProduct',
-        element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
+        path: "/dashboard/seller/addProduct",
+        element: (
+          <SellerRoute>
+            <AddProduct></AddProduct>
+          </SellerRoute>
+        ),
       },
       {
-        path: '/dashboard/seller/myProducts',
-        element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
+        path: "/dashboard/seller/myProducts",
+        element: (
+          <SellerRoute>
+            <MyProducts></MyProducts>
+          </SellerRoute>
+        ),
       },
       {
-        path: '/dashboard/seller/myBuyers',
-        element: <SellerRoute><MyBuyers></MyBuyers></SellerRoute>
+        path: "/dashboard/seller/myBuyers",
+        element: (
+          <SellerRoute>
+            <MyBuyers></MyBuyers>
+          </SellerRoute>
+        ),
       },
-     
+
       {
-        path: '/dashboard/admin/allSellrs',
-        element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
+        path: "/dashboard/admin/allSellrs",
+        element: (
+          <AdminRoute>
+            <AllSellers></AllSellers>
+          </AdminRoute>
+        ),
       },
       {
-        path: '/dashboard/admin/allUsers',
-        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        path: "/dashboard/admin/allUsers",
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
       },
       {
-        path: '/dashboard/admin/reportedItems',
-        element: <AdminRoute><ReportedItems></ReportedItems></AdminRoute>
-      }
+        path: "/dashboard/admin/reportedItems",
+        element: (
+          <AdminRoute>
+            <ReportedItems></ReportedItems>
+          </AdminRoute>
+        ),
+      },
 
       // {
       //   path: '/dashboard/managedoctors',
@@ -109,8 +145,8 @@ export const router = createBrowserRouter([
       // {
       //   path: '/dashboard/payment/:id',
       //   element: <AdminRoute><Payment></Payment></AdminRoute>,
-      //   loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+      //   loader: ({params}) => fetch(`https://sokher-furniture.vercel.app/bookings/${params.id}`)
       // }
-    ]
-  }
+    ],
+  },
 ]);
