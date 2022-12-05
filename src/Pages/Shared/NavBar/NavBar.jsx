@@ -25,8 +25,16 @@ const NavBar = () => {
               <Link to={"/"}>Home</Link>
             </li>
             <li>
-                <Link to={"/categories"}>Categories</Link>
-            </li>
+                <a>
+                Categories
+                  <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+                </a>
+                <ul className="p-2 bg-base-100 z-30">
+                  <Link to={'/categories/Bedroom'}>Bedroom</Link>
+                  <Link to={'/categories/Office'}>Office</Link>
+                  <Link to={'/categories/Dining%20&%20Kitchen'}>Dining Kichen</Link>
+                </ul>
+              </li>
             {user?.email ? (
               <>
                 <li>
@@ -52,7 +60,7 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Furniture</a>
+        <a className="btn btn-ghost normal-case text-xl"><span className="text-4xl text-primary">s</span>okher <span className="text-3xl text-primary"> F</span>urniture</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
@@ -60,8 +68,16 @@ const NavBar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <Link to={"/categories"}>Categories</Link>
-          </li>
+                <a>
+                  Categories
+                  <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+                </a>
+                <ul className="p-2 bg-base-100">
+                  <Link to={'/categories/Bedroom'}>Bedroom</Link>
+                  <Link to={'/categories/Office'}>Office</Link>
+                  <Link to={'/categories/Dining%20&%20Kitchen'}>Dining Kichen</Link>
+                </ul>
+              </li>
           <li>
             <Link to={"/blogs"}>Blogs</Link>
           </li>

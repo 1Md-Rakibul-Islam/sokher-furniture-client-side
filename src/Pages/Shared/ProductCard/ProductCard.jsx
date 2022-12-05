@@ -11,16 +11,30 @@ import useSeller from "../../../Hooks/useSeller";
 import { useQuery } from "@tanstack/react-query";
 
 const ProductCard = ({ product, handelBooking }) => {
-  const { _id, category, name, photo, location, originalPrice, reselPrice, useDuration, decription, sellerName, sellerEmail, sellerPhoto, publish } =
-    product;
+  const {
+    _id,
+    category,
+    name,
+    photo,
+    verified,
+    location,
+    originalPrice,
+    reselPrice,
+    useDuration,
+    decription,
+    sellerName,
+    sellerEmail,
+    sellerPhoto,
+    publish,
+  } = product;
 
   const { user } = useContext(AuthContext);
   const [isBuyer, isBuyerLoading] = useBuyer(user?.email);
   const [isBooking, isBookingLoading] = useBooking(_id);
 
-  if (isBuyerLoading && isBookingLoading) {
-    return <Loading></Loading>;
-  }
+  // if (isBuyerLoading && isBookingLoading) {
+  //   return <Loading></Loading>;
+  // }
 
   const handleReport = (_id) => {
     window.confirm("Are you sure report the product? Yes?No");
@@ -37,7 +51,7 @@ const ProductCard = ({ product, handelBooking }) => {
       repoterName: user.displayName,
     };
 
-    fetch("https://sokher-furniture.vercel.app/product/report", {
+    fetch("https://sokher-furniture-1md-rakibul-islam.vercel.app/product/report", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -78,7 +92,7 @@ const ProductCard = ({ product, handelBooking }) => {
 
         <div className="flex items-center gap-4">
           <FaDollarSign></FaDollarSign>
-          <span>Original Price: {reselPrice}</span>
+          <span>Original Price: {originalPrice}</span>
         </div>
 
         <div className="flex items-center gap-4">
@@ -88,7 +102,7 @@ const ProductCard = ({ product, handelBooking }) => {
 
         <div className="badge p-2 badge-secondary">
           <FaDollarSign></FaDollarSign>
-          <span>Price: {originalPrice}</span>
+          <span>Price: {reselPrice}</span>
         </div>
 
         <div className="flex gap-4">
@@ -105,9 +119,11 @@ const ProductCard = ({ product, handelBooking }) => {
 
         <div className="flex justify-between items-center">
           <div className="mt-2">
-            <button onClick={() => handleReport(_id)} className="btn btn-outline btn-error btn-sm">
-              Report
-            </button>
+            {isBuyer && (
+              <button onClick={() => handleReport(_id)} className="btn btn-outline btn-error btn-sm">
+                Report
+              </button>
+            )}
           </div>
           {isBuyer && (
             <label onClick={() => handelBooking(product)} htmlFor="booking-modal" className={`btn btn-primary text-white ${isBooking && "hidden"}`}>

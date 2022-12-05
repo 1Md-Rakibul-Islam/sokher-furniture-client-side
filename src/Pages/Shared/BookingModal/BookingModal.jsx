@@ -33,7 +33,7 @@ const BookingModal = ({ product }) => {
 
     console.log(booking);
 
-    fetch("https://sokher-furniture.vercel.app/bookings", {
+    fetch("https://sokher-furniture-1md-rakibul-islam.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -45,6 +45,7 @@ const BookingModal = ({ product }) => {
         console.log(data);
         if (data.acknowledged) {
           toast.success("Booking confirmed");
+          toast.success("Plase refresh your browser");
         } else {
           toast.error(data.message);
         }
@@ -59,7 +60,6 @@ const BookingModal = ({ product }) => {
           <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">
             ✕
           </label>
-          {/* <h2 className="text-xl text-primary text-center font-bold my-5">{name}</h2> */}
           <form onSubmit={handelBooking} className="">
             <div className="form-control w-full mt-1">
               <label htmlFor="label">
@@ -126,7 +126,7 @@ const BookingModal = ({ product }) => {
               <input name="buyerLocation" type="text" placeholder="Your location" className="input input-bordered w-full" />
             </div>
 
-            <button type="submit" className="btn btn-accent w-full">
+            <button type="submit" className="btn mt-2 btn-accent w-full">
               Submit
             </button>
           </form>

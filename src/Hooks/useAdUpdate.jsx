@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 
 const useAdUpdate = (_id, refetch) => {
-  fetch(`https://sokher-furniture.vercel.app/seller/advertising/product/${_id}`, {
+  fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/seller/advertising/product/${_id}`, {
     method: "PUT",
   })
     .then((res) => res.json())

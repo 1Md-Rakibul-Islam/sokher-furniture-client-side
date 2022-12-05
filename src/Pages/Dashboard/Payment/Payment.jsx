@@ -7,19 +7,21 @@ import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe(import.meta.env.VITE_Stripe_PK);
 console.log(stripePromise);
 
+// {"_id":"63834e6d60d6368b8e3540b7","productId":"6381297a4568d7fd5159cde4","name":"Workstation Table","photo":"https://i.ibb.co/fpjDyCD/office-furniture-bd-870x493.jpg","buyerName":"Md. Nazrul Islam","buyerEmail":"nazrul@gmail.com","reselPrice":"3800","buyerPhoneNumber":"017128350344","buyerLocation":"Dhaka, Tejgong-120","sellerEmail":"nusrat@gmail.com"}
+
 const Payment = () => {
-    const booking = useLoaderData()
-    const {appoitment, patientName, email, phone, price, slot, treatment} = booking;
-    console.log(booking); 
+    const order = useLoaderData()
+    const {name, reselPrice} = order;
+
     return (
         <div>
-            <h2 className='text-4xl'>Payment for</h2>
-            <p className='text-xl mt-5'>Plase pay <strong>${price}</strong> for your appointment on {appoitment} {slot}</p>
+            <h2 className='text-4xl'>Payment</h2>
+            <p className='text-xl mt-5'>Plase pay <strong>${reselPrice}</strong> for your product on {name}</p>
 
             <div className='w-96 my-6'>
                 <Elements stripe={stripePromise}>
                     <CheckoutForm
-                        booking={booking}
+                        order={order}
                     />
                 </Elements>
             </div>

@@ -13,7 +13,7 @@ const DashboardLayout = () => {
     const [isBuyer, isBuyerLoading] = useBuyer(user?.email);
     const [isSeller, isSellerLoading] = useSeller(user?.email);
     const [isAdmin, isAdminLoading] = useAdmin(user?.email);
-    console.log(isAdmin);
+
 
     if(isBuyerLoading || isSellerLoading || isAdminLoading){
         return <Loading></Loading>
@@ -28,7 +28,7 @@ const DashboardLayout = () => {
                     <Outlet></Outlet>
                 </div> 
                 <div className="drawer-side">
-                    <label htmlFor="dashboard-drawer" className="drawer-overlay"></label> 
+                    <label htmlFor="dashboard-drawer bg-purple-300" className="drawer-overlay"></label> 
                     <ul className="menu p-4 w-80 text-base-content">
                         {
                             isBuyer && <>

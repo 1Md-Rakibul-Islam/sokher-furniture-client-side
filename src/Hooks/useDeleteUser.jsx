@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 
-const useDelete = (_id, refetch) => {
-  fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/products/${_id}`, {
+const useDeleteUser = (_id, refetch) => {
+  fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/users/${_id}`, {
     method: "DELETE",
   })
     .then((res) => res.json())
@@ -11,4 +11,4 @@ const useDelete = (_id, refetch) => {
     });
 };
 
-export default useDelete;
+export default useDeleteUser;

@@ -13,7 +13,7 @@ const Wishlist = () => {
   } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
-      const res = await fetch(`https://sokher-furniture.vercel.app/user/orders?email=${user.email}`);
+      const res = await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/user/orders?email=${user.email}`);
       const data = await res.json();
       return data;
     },

@@ -6,7 +6,7 @@ const useSeller = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`https://sokher-furniture.vercel.app/users/seller/${email}`)
+      fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/users/seller/${email}`)
         .then((res) => res.json())
         .then((data) => {
           if (data) {

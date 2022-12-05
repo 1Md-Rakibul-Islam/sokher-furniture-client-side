@@ -21,6 +21,7 @@ import Wishlist from "../../Pages/Dashboard/BuyerDashboard/Wishlist/Wishlist";
 import AddProduct from "../../Pages/Dashboard/SellerDashboard/AddProduct/AddProduct";
 import MyProducts from "../../Pages/Dashboard/SellerDashboard/MyProducts/MyProducts";
 import AdminRoute from "../AdminRoute/AdminRoute";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/categories/:categoriyName",
-        loader: async ({ params }) => await fetch(`https://sokher-furniture.vercel.app/categories/${params.categoriyName}`),
+        loader: async ({ params }) => await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/categories/${params.categoriyName}`),
         element: <Categories></Categories>,
       },
       {
@@ -137,16 +138,15 @@ export const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
-
-      // {
-      //   path: '/dashboard/managedoctors',
-      //   element: <AdminRoute><ManageDoctors></ManageDoctors></AdminRoute>
-      // },
-      // {
-      //   path: '/dashboard/payment/:id',
-      //   element: <AdminRoute><Payment></Payment></AdminRoute>,
-      //   loader: ({params}) => fetch(`https://sokher-furniture.vercel.app/bookings/${params.id}`)
-      // }
+      {
+        path: "/dashboard/bookings/pay/:id",
+        element: (
+          <BuyerRoute>
+            <Payment></Payment>
+          </BuyerRoute>
+        ),
+        loader: ({ params }) => fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/dashboard/bookings/pay/${params.id}`),
+      },
     ],
   },
 ]);

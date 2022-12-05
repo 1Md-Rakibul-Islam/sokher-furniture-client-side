@@ -8,7 +8,13 @@ import { useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import useToken from "../../Hooks/useToken";
 import { GoogleAuthProvider } from "firebase/auth";
-
+import useBuyer from "../../Hooks/useBuyer";
+import Loading from "../../Pages/Shared/Loading/Loading";
+// https://sokher-furniture-1md-rakibul-islam.vercel.app
+// https://sokher-furniture-1md-rakibul-islam.vercel.app
+// sokher-furniture.vercel.app
+// https://sokher-furniture-1md-rakibul-islam.vercel.app
+// https://sokher-furniture-1md-rakibul-islam.vercel.app
 const SignUp = () => {
   const {
     register,
@@ -21,8 +27,11 @@ const SignUp = () => {
   const [createdUserEmail, setCreatedUserEmail] = useState("");
   const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
+  const googleProvider = new GoogleAuthProvider();
+  const [buyer, setBuyer] = useState("");
+  const [isBuyer, isBuyerLoading] = useBuyer(buyer);
 
-  console.log(token, "gvjvhh");
+  // console.log(token, "gvjvhh");
 
   if (token) {
     navigate("/");
@@ -70,6 +79,29 @@ const SignUp = () => {
       });
   };
 
+  // google login
+
+  const handelGoogleLogin = () => {
+    loginProvider(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        // console.log(user.email);
+        setBuyer(user.email);
+        // if (isBuyerLoading) {
+        //   return <Loading></Loading>
+        // }
+        // console.log('buy:', buyer)
+        saveUser("buyer", user?.displayName, user?.email, user?.photoURL);
+
+        setLoading(false);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
+
   // save profile on db
   const saveUser = (role, userName, email, userImage) => {
     const user = {
@@ -81,7 +113,7 @@ const SignUp = () => {
 
     // console.log( 'saveUser', user);
 
-    fetch("https://sokher-furniture.vercel.app/users", {
+    fetch("https://sokher-furniture-1md-rakibul-islam.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -98,114 +130,97 @@ const SignUp = () => {
       });
   };
 
-  // google login
-  // google login
-  const googleProvider = new GoogleAuthProvider();
-  const handelGoogleLogin = () => {
-    loginProvider(googleProvider)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        setLoading(false);
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
-  };
-
   return (
-    <div className="h-[650px] flex justify-center items-center">
-      <div className="card border w-80 md:w-96 shadow-2xl p-7">
-        <h2 className="text-xl text-center text-primary">Sign Up</h2>
-        <form onSubmit={handleSubmit(handelSignUp)}>
-          <div className="form-control w-full mt-5">
-            <label htmlFor="label">
-              {" "}
-              <span>Name</span>
-            </label>
-            <input
-              {...register("name", {
-                required: true,
-              })}
-              className="input input-bordered"
-            />
-            {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
+    <div className="md:w-[800px] md:mx-auto mx-5 h-[720px] flex justify-center items-center">
+      <div className="card w-full border shadow-2xl p-7">
+        <h2 className="text-3xl my-5 text-center text-primary">Sign Up</h2>
+        <form onSubmit={handleSubmit(handelSignUp)} calssName="card">
+          <div className="grid justify-center gap-3 grid-cols-1 md:grid-cols-2">
+            <div className="form-control">
+              <label htmlFor="label">
+                <span>Name</span>
+              </label>
+              <input
+                {...register("name", {
+                  required: true,
+                })}
+                className="input input-bordered"
+              />
+              {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
+            </div>
+            <div className="form-control">
+              <label htmlFor="label">
+                <span>Photo</span>
+              </label>
+              <input
+                {...register("photo", {
+                  required: true,
+                })}
+                type="file"
+                className="file-input file-input-bordered"
+              />
+              {errors?.email && <small className="text-error mt-2">{errors.email?.message}</small>}
+            </div>
+            <div className="form-control">
+              <label htmlFor="label">
+                <span>Buyer/Seller</span>
+              </label>
+              <select
+                {...register("option", {
+                  required: true,
+                })}
+                className="select select-bordered"
+              >
+                <option disabled selected>
+                  Whis account are you want to create?
+                </option>
+                <option value="buyer" selected>
+                  Buyer
+                </option>
+                <option value="seller">Seller</option>
+              </select>
+              {errors?.email && <small className="text-error mt-2">{errors.email?.message}</small>}
+            </div>
+            <div className="form-control">
+              <label htmlFor="label">
+                <span>Email</span>
+              </label>
+              <input
+                {...register("email", {
+                  required: "Email address is required",
+                })}
+                className="input input-bordered"
+              />
+              {errors?.email && <small className="text-error mt-2">{errors.email?.message}</small>}
+            </div>
+            <div className="form-control">
+              <label htmlFor="label">
+                <span>Password</span>
+              </label>
+              <input
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: { value: 6, message: "Password must be 6 charecters or longer" },
+                  pattern: { value: /(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9])/, message: "Password must be strong" },
+                })}
+                className="input input-bordered"
+              />
+              {errors.password && <small className="text-error mt-2">{errors.password?.message}</small>}
+            </div>
+            <div>{signUpError && <span className="my-2 text-error">{signUpError}</span>}</div>
           </div>
-          <div className="form-control w-full mt-5">
-            <label htmlFor="label">
-              {" "}
-              <span>Photo</span>
-            </label>
-            <input
-              {...register("photo", {
-                required: true,
-              })}
-              type="file"
-              className="file-input file-input-bordered"
-            />
-            {errors?.email && <small className="text-error mt-2">{errors.email?.message}</small>}
-          </div>
-          <div className="form-control w-full mt-5">
-            <label htmlFor="label">
-              {" "}
-              <span>Buyer/Seller</span>
-            </label>
-            <select
-              {...register("option", {
-                required: true,
-              })}
-              className="select select-bordered mt-5"
-            >
-              <option disabled selected>
-                Whis account are you want to create?
-              </option>
-              <option value="buyer" selected>
-                Buyer
-              </option>
-              <option value="seller">Seller</option>
-            </select>
-            {errors?.email && <small className="text-error mt-2">{errors.email?.message}</small>}
-          </div>
-          <div className="form-control w-full mt-5">
-            <label htmlFor="label">
-              {" "}
-              <span>Email</span>
-            </label>
-            <input
-              {...register("email", {
-                required: "Email address is required",
-              })}
-              className="input input-bordered"
-            />
-            {errors?.email && <small className="text-error mt-2">{errors.email?.message}</small>}
-          </div>
-          <div className="form-control w-full mt-5">
-            <label htmlFor="label">
-              {" "}
-              <span>Password</span>
-            </label>
-            <input
-              {...register("password", {
-                required: "Password is required",
-                minLength: { value: 6, message: "Password must be 6 charecters or longer" },
-                pattern: { value: /(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9])/, message: "Password must be strong" },
-              })}
-              className="input input-bordered"
-            />
-            {errors.password && <small className="text-error mt-2">{errors.password?.message}</small>}
-          </div>
-          <div>{signUpError && <span className="my-2 text-error">{signUpError}</span>}</div>
 
-          <input className="w-full mt-5 btn bg-primary text-white" type="submit" value="Sign Up" />
+          <div className="text-center">
+            <input className=" mt-5 btn btn-primary text-white" type="submit" value="Sign Up" />
+            <p>
+              Alredy have an account?
+              <Link className="text-secondary" to="/login">
+                Plase Login
+              </Link>
+            </p>
+          </div>
         </form>
-        <p>
-          Alredy have an account?
-          <Link className="text-secondary" to="/login">
-            Plase Login
-          </Link>
-        </p>
+
         <div className="divider">OR</div>
         <div className="mx-auto">
           <button onClick={handelGoogleLogin} className="btn text-3xl text-success btn-outline btn-circle">

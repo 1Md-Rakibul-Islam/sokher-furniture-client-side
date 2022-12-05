@@ -4,7 +4,7 @@ import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
 import Loading from "../../../Shared/Loading/Loading";
 
 const MyBuyers = () => {
-  /* https://sokher-furniture.vercel.app/seller/buyers?email=nusrat@gmail.com */
+  /* https://sokher-furniture-1md-rakibul-islam.vercel.app/seller/buyers?email=nusrat@gmail.com */
 
   const { user } = useContext(AuthContext);
 
@@ -15,7 +15,7 @@ const MyBuyers = () => {
   } = useQuery({
     queryKey: ["buyers"],
     queryFn: async () => {
-      const res = await fetch(`https://sokher-furniture.vercel.app/seller/buyers?email=${user.email}`);
+      const res = await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/seller/buyers?email=${user.email}`);
       const data = await res.json();
       return data;
     },

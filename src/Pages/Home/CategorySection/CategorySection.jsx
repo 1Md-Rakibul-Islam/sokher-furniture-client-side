@@ -6,7 +6,7 @@ const CategorySection = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("https://sokher-furniture.vercel.app/productsCategories")
+    fetch("https://sokher-furniture-1md-rakibul-islam.vercel.app/productsCategories")
       .then((res) => res.json())
       .then((data) => {
         setCategories(data);

@@ -91,7 +91,7 @@ const AddProduct = () => {
 
     // console.log( 'saveUser', user);
 
-    fetch("https://sokher-furniture.vercel.app/products", {
+    fetch("https://sokher-furniture-1md-rakibul-islam.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

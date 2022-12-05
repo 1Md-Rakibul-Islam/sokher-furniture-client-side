@@ -12,7 +12,7 @@ const ReportedItems = () => {
   } = useQuery({
     queryKey: ["reportedProducts"],
     queryFn: async () => {
-      const res = await fetch("https://sokher-furniture.vercel.app/product/report");
+      const res = await fetch("https://sokher-furniture-1md-rakibul-islam.vercel.app/product/report");
       const data = await res.json();
       return data;
     },
@@ -29,7 +29,7 @@ const ReportedItems = () => {
   };
 
   const reportDelete = (reportId) => {
-    fetch(`https://sokher-furniture.vercel.app/product/report/${reportId}`, {
+    fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/product/report/${reportId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

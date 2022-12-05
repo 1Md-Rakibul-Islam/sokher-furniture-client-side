@@ -1,11 +1,14 @@
 import React from 'react';
 import BannerItem from './BannerItem/BannerItem';
+import slider1 from '../../../assets/images/slider1.jpg';
+import slider2 from '../../../assets/images/slider2.jpg';
+import slider3 from '../../../assets/images/slider3.jpg';
 
 const Bannder = () => {
     const bannerData = [
         {   
             id: 1,
-            image: 'http://caketheme.com/html/ruper/media/banner/parallax.jpg',
+            image: slider1,
             title: 'Chair Collection',
             Decription: 'Hot stuff, new stuff, fun stuff, soon be your stuff?',
             prev: 3,
@@ -13,7 +16,7 @@ const Bannder = () => {
         },
         {   
             id: 2,
-            image: 'http://caketheme.com/html/ruper/media/slider/28.jpg',
+            image: slider2,
             prev: 1,
             title: 'Easy Living',
             Decription: 'Hot stuff, new stuff, fun stuff, soon be your stuff?',
@@ -21,7 +24,7 @@ const Bannder = () => {
         },
         {   
             id: 3,
-            image: 'http://caketheme.com/html/ruper/media/slider/29.jpg',
+            image: slider3,
             title: 'Very low of coast',
             Decription: 'Hot stuff, new stuff, fun stuff, soon be your stuff?',
             prev: 2,

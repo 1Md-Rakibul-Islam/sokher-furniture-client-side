@@ -1,9 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import useDeleteUser from "../../../../Hooks/useDeleteUser";
+import useAdmin from "../../../../Hooks/useAdmin";
 import Loading from "../../../Shared/Loading/Loading";
+import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
 
 const AllUsers = () => {
-  // 'https://sokher-furniture.vercel.app/users'
+  // 'https://sokher-furniture-1md-rakibul-islam.vercel.app/users'
 
   const {
     data: users = [],
@@ -12,7 +15,7 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`https://sokher-furniture.vercel.app/users`);
+      const res = await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/users`);
       const data = await res.json();
       return data;
     },
@@ -24,17 +27,18 @@ const AllUsers = () => {
 
   return (
     <div>
-      <h2>All Users: {users.length}</h2>
+      <h2 className="text-3xl mb-10">All Users: {users.length}</h2>
 
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
             <tr>
               <th></th>
+              <th>Role</th>
               <th>Photo</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Delete</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
@@ -42,8 +46,9 @@ const AllUsers = () => {
             {users.map((user, i) => (
               <tr key={i}>
                 <th>{1 + i}</th>
+                <th>{user.role}</th>
                 <th>
-                  <div className="avatar online">
+                  <div className="avatar">
                     <div className="w-24 rounded-full">
                       <img src={user.userImage} />
                     </div>
@@ -52,7 +57,13 @@ const AllUsers = () => {
                 <td>{user.userName}</td>
                 <td>{user.email}</td>
                 <td>
-                  <button className="btn btn-sm btn-error">Delete</button>
+                  {user.role === "admin" ? (
+                    ""
+                  ) : (
+                    <button onClick={() => useDeleteUser(user._id, refetch)} className="btn btn-sm btn-error">
+                      Delete
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}

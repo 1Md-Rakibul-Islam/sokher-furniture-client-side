@@ -16,7 +16,7 @@ const MyProducts = () => {
   } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
-      const res = await fetch(`https://sokher-furniture.vercel.app/seller/products?email=${user.email}`);
+      const res = await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/seller/products?email=${user.email}`);
       const data = await res.json();
       return data;
     },
@@ -26,41 +26,22 @@ const MyProducts = () => {
     return <Loading></Loading>;
   }
 
-  const handelAdvertisigProduct = (_id) => {
+  const handelAdvertisigProduct = (_id, refetch) => {
     if (!_id) {
       return <Loading></Loading>;
     }
 
-    // fetch(`https://sokher-furniture.vercel.app/seller/advertising/product/${_id}`, {
-    //     method: 'PUT'
-    // })
-    // .then(res => res.json())
-    // .then(data => {
-    //     if(data.modifiedCount > 0 ){
-    //         toast.success('advertising successfull')
-    //         refetch()
-    //     }
-    //     console.log(data);
-    // })
-
-    // AdStatus
-    // fetch(`https://sokher-furniture.vercel.app/seller/advertising/product/${_id}`, {
-    //     method: "PATCH",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify({AdStatus: 'advertised'}),
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //       if (data.acknowledged) {
-    //         toast.success('advertising successfull');
-    //       }
-    //     })
-    //     .catch((err) => console.error(err));
-
-    console.log(_id);
+    fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/seller/advertising/product/${_id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("advertising successfull");
+          refetch();
+        }
+        console.log(data);
+      });
   };
 
   // _id , category, name, photo, location, originalPrice, reselPrice, useDuration, decription, sellerEmail, publish
@@ -99,9 +80,16 @@ const MyProducts = () => {
                 <td>{product.publish}</td>
                 <td>{product.status}</td>
                 <td>
-                  <button onClick={() => useAdUpdate(product._id, refetch)} className="btn btn-sm btn-success">
-                    {product.AdStatus ? product.AdStatus : "Advertising"}
-                  </button>
+                  {!product?.advertising && (
+                    <button onClick={() => handelAdvertisigProduct(product._id, refetch)} className="btn btn-sm btn-success">
+                      Advertising
+                    </button>
+                  )}
+                  {product?.advertising && (
+                    <button disabled className="btn btn-sm ">
+                      Advertised
+                    </button>
+                  )}
                 </td>
                 <td>
                   <button onClick={() => useDelete(product._id, refetch)} className="btn btn-sm btn-error">
