@@ -24,12 +24,12 @@ const DashboardLayout = () => {
             <NavBar></NavBar>
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content">
+                <div className="drawer-content px-10 mt-20">
                     <Outlet></Outlet>
                 </div> 
-                <div className="drawer-side">
-                    <label htmlFor="dashboard-drawer bg-purple-300" className="drawer-overlay"></label> 
-                    <ul className="menu p-4 w-80 text-base-content">
+                <div className="drawer-side mt-20">
+                    <label htmlFor="dashboard-drawer " className="drawer-overlay"></label> 
+                    <ul className="menu p-4 w-80 bg-base-200">
                         {
                             isBuyer && <>
                                 <li><Link to='/dashboard/buyer/wishlist'>Wishlist</Link></li>

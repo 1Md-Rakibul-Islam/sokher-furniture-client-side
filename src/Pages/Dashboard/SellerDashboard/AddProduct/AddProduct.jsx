@@ -110,9 +110,10 @@ const AddProduct = () => {
 
   return (
     <div className="">
-      <div className="hero-content my-10 mx-auto">
+      <h1 className="text-center text-3xl my-5 font-bold">Add Product</h1>
+      <div className="hero-content mx-auto">
         <div className="card w-full shadow-2xl bg-base-500">
-          <h1 className="text-4xl mt-5 text-center font-bold">Add Product</h1>
+          
           <form onSubmit={handleSubmit(handelAddProduct)} className="card-body">
             <div className=" grid gap-3 grid-cols-1 md:grid-cols-3">
               <div className="form-control">

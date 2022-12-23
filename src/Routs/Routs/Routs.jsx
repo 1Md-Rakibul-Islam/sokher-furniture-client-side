@@ -6,7 +6,7 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import Login from "../../Pages/Login/Login";
 import Categories from "../../Pages/Categories/Categories";
 import Page404 from "../../Pages/Shared/404/Page404";
-import Blogs from "../../Pages/Blogs/Blogs";
+import Products from "../../Pages/Products/Products";
 import SellerRoute from "../SellerRoute/SellerRoute";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -38,8 +38,8 @@ export const router = createBrowserRouter([
         element: <Categories></Categories>,
       },
       {
-        path: "/blogs",
-        element: <Blogs></Blogs>,
+        path: "/products",
+        element: <Products></Products>,
       },
       {
         path: "/about",

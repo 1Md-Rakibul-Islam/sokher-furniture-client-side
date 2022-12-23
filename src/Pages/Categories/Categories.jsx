@@ -22,7 +22,7 @@ const Categories = () => {
     }
     
     return (
-        <div className="">
+        <div className="pt-20">
         <h2 className="text-center text-primary text-4xl">Products</h2>
         <div className="grid justify-items-center gap-5 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {

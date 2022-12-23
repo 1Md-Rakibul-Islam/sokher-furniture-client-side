@@ -33,15 +33,13 @@ const Bannder = () => {
     ]
 
     return (
-    <div className="carousel w-full mx-auto my-5 text-left">
-
-            {
-                bannerData.map( slide => <BannerItem 
-                key={slide.id}
-                slide={slide}
-                ></BannerItem>)
-            }
-
+    <div className="carousel w-full mx-auto text-left">
+        {
+            bannerData.map( slide => <BannerItem 
+            key={slide.id}
+            slide={slide}
+            ></BannerItem>)
+        }
     </div>
     );
 

@@ -6,7 +6,7 @@ import Support from "../Support/Support";
 
 const Home = () => {
   return (
-    <div>
+    <div className="mx-5 md:mx-14 ">
       <Banner></Banner>
       <CategorySection></CategorySection>
       <Advertisig></Advertisig>

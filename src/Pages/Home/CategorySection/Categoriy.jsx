@@ -3,9 +3,9 @@ import React from "react";
 const Categoriy = ({categoriy}) => {
     const {categoriyName, image, decription } = categoriy;
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className="card hover:border hover:border-primary w-80 bg-base-100 shadow-xl">
       <figure>
-        <img className="w-full max-h-72" src={image} alt="Categoriy" />
+        <img className="w-full h-40" src={image} alt="Categoriy" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">

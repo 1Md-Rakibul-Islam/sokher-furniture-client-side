@@ -21,15 +21,16 @@ Using latest technologies React, Tailwind css, Firebase authentication system, f
 - Buyer Dashboard Page
 - Seller Dashboard Page
 - All seller 
-- All user  
+- All user
+- Product Details Page  
 - Blogs Page
 - Login Page
 - Sign Up Page 
 
 ### Highlighted Features
 
-- Get Appointment.
 - Login & register with email & password, google
 - So many Services.
 - Product report
 - product add , delete and edit
+- payment gateway
