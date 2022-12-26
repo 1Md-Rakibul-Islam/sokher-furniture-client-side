@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
@@ -35,7 +36,8 @@ const Login = () => {
     signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
+        toast.success('Login Successfully')
         setLoginUserEmail(data.email);
       })
       .catch((error) => {

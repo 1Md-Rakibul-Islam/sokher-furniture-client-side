@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaDollarSign, FaMapMarkerAlt, FaRegClock, FaUserClock } from "react-icons/fa";
+import { FaCheckCircle, FaDollarSign, FaMapMarkerAlt, FaRegClock, FaUserClock } from "react-icons/fa";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import useBuyer from "../../../Hooks/useBuyer";
@@ -28,13 +28,15 @@ const ProductCard = ({ product, handelBooking }) => {
     publish,
   } = product;
 
+  // console.log(product);
+
   const { user } = useContext(AuthContext);
   const [isBuyer, isBuyerLoading] = useBuyer(user?.email);
   const [isBooking, isBookingLoading] = useBooking(_id);
 
-  // if (isBuyerLoading && isBookingLoading) {
-  //   return <Loading></Loading>;
-  // }
+  if (isBuyerLoading && isBookingLoading) {
+    return <Loading></Loading>;
+  }
 
   const handleReport = (_id) => {
     window.confirm("Are you sure report the product? Yes?No");
@@ -110,6 +112,9 @@ const ProductCard = ({ product, handelBooking }) => {
             <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img src={sellerPhoto} alt="" />
             </div>
+            {
+              verified && <FaCheckCircle className="text-xl text-blue-400"></FaCheckCircle>
+            }
           </div>
           <div className="flex flex-col my-2">
             <h2 className="text-3px font-bold">Seller: {sellerName ? sellerName : "Not Found"}</h2>
@@ -118,18 +123,17 @@ const ProductCard = ({ product, handelBooking }) => {
         </div>
 
         <div className="flex justify-between items-center">
-          <div className="mt-2">
-            {isBuyer && (
-              <button onClick={() => handleReport(_id)} className="btn btn-outline btn-error btn-sm">
-                Report
-              </button>
-            )}
-          </div>
-          {isBuyer && (
-            <label onClick={() => handelBooking(product)} htmlFor="booking-modal" className={`btn btn-primary text-white ${isBooking && "hidden"}`}>
-              {isBooking ? "Booked" : "Booking"}
-            </label>
-          )}
+          {
+              isBuyer &&
+              <>
+                  <button onClick={() => handleReport(_id)} className="btn btn-outline btn-error btn-sm">
+                    Report
+                  </button>
+                  <label onClick={() => handelBooking(product)} htmlFor="booking-modal" className={`btn btn-primary text-white ${isBooking && user?.email &&'hidden'}`}>
+                    {isBooking ? "Booked" : "Booking"}
+                  </label>
+              </>
+          }
 
           {isBooking && isBuyer && (
             <button className="btn btn-primary" disabled>
@@ -137,9 +141,6 @@ const ProductCard = ({ product, handelBooking }) => {
             </button>
           )}
 
-          {/* <Link to={`/product/${_id}`}>
-                        <button className="btn btn-primary ">Book Now</button>
-                    </Link> */}
         </div>
       </div>
     </div>

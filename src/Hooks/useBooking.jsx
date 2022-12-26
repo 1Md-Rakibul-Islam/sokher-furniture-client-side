@@ -7,7 +7,7 @@ const useSeller = (_id) => {
 
   useEffect(() => {
     if (_id) {
-      fetch(`http://localhost:5000/bookings/${_id}`)
+      fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/bookings/${_id}`)
         .then((res) => res.json())
         .then((data) => {
           if (data) {

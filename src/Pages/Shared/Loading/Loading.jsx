@@ -5,7 +5,7 @@ const Loading = () => {
     <div role="status">
       <svg
         aria-hidden="true"
-        className="mx-auto mt-48 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+        className="mx-auto w-8 h-[80vh] text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,6 @@ const Loading = () => {
           fill="currentFill"
         />
       </svg>
-      <span className="sr-only">Loading...</span>
     </div>
   );
 };

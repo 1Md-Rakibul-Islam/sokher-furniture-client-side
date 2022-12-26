@@ -56,6 +56,10 @@ const AddProduct = () => {
       });
   };
 
+  // if( === verified.true){
+
+  // }
+
   const saveUser = (
     category,
     name,
@@ -87,6 +91,7 @@ const AddProduct = () => {
       publish,
       status: "available",
       AdStatus: "no advertising",
+      
     };
 
     // console.log( 'saveUser', user);

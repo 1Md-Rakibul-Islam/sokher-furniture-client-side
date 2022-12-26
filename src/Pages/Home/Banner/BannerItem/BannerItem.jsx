@@ -11,7 +11,7 @@ const BannerItem = ({slide}) => {
                 <img src={image} className="rounded-xl" />
             </div>
             <div className="absolute transform left-24 top-1/4">
-                <h1 className='text-3xl md:text-6xl font-bold text-white'>
+                <h1 classsName='text-3xl md:text-6xl font-bold text-white'>
                     {title}
                 </h1>
             </div>
@@ -21,7 +21,7 @@ const BannerItem = ({slide}) => {
                 </p>
             </div>
             <div className="absolute transform -translate-y-1/2 w-2/5 left-24 top-3/4">
-                <Link to={'/categories'}>
+                <Link to={'/products'}>
                     <button className="mx-auto btn btn-active btn-primary">Visit all Products</button>
                 </Link>
             </div>

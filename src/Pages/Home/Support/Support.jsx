@@ -4,8 +4,8 @@ import { FaAmazonPay, FaPhone, FaRetweet, FaShippingFast } from 'react-icons/fa'
 const Support = () => {
     return (
         <div>
-            <h1 className="text-4xl text-center text-primary mt-3">Services We Provide</h1>
-            <div className="grid gap-6 my-20 mx-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <h1 className="text-4xl text-center text-primary mt-3">Our Services</h1>
+            <div className="grid gap-6 my-20 md:mx-10 mx-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 <div className="card bordered shadow-xl">
                     <figure className="px-10 pt-10">
                         <FaShippingFast className='text-primary text-7xl'></FaShippingFast>

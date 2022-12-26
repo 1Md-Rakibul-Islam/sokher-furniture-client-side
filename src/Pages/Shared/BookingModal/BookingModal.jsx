@@ -57,8 +57,8 @@ const BookingModal = ({ product }) => {
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box">
-          <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">
-            ✕
+          <label htmlFor="booking-modal" className="btn btn-sm btn-circle btn-primary absolute right-2 top-2">
+            <span className="text-white">✕</span>
           </label>
           <form onSubmit={handelBooking} className="">
             <div className="form-control w-full mt-1">
@@ -126,7 +126,7 @@ const BookingModal = ({ product }) => {
               <input name="buyerLocation" type="text" placeholder="Your location" className="input input-bordered w-full" />
             </div>
 
-            <button type="submit" className="btn mt-2 btn-accent w-full">
+            <button type="submit" className="btn mt-2 btn-primary w-full">
               Submit
             </button>
           </form>

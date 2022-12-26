@@ -12,7 +12,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 z-30 fixed">
+    <div className="navbar glass z-30 fixed">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -35,6 +35,11 @@ const NavBar = () => {
                   <Link to={'/categories/Dining%20&%20Kitchen'}>Dining Kichen</Link>
                 </ul>
               </li>
+
+              <li>
+                <Link to={"/products"}>Products</Link>
+              </li>
+
             {user?.email ? (
               <>
                 <li>
@@ -55,9 +60,6 @@ const NavBar = () => {
               </>
             )}
 
-            <li>
-              <Link to={"/products"}>Products</Link>
-            </li>
           </ul>
         </div>
         <a className="btn btn-ghost normal-case text-xl"><span className="text-4xl text-primary">s</span>okher <span className="text-3xl text-primary"> F</span>urniture</a>
@@ -110,7 +112,7 @@ const NavBar = () => {
           </label>
           <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
             <li>
-              <a className="justify-between">Profile</a>
+                <Link to={"/dashboard"}><a className="justify-between">Profile</a></Link>
             </li>
             <li>
               <a className="justify-between">{user?.displayName}</a>

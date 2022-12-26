@@ -3,9 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "../../Shared/Loading/Loading";
 import ProductCard from "../../Shared/ProductCard/ProductCard";
 import BookingModal from "../../Shared/BookingModal/BookingModal";
+import { useNavigate } from "react-router-dom";
 
 const Advertisig = () => {
   const [product, setProduct] = useState([]);
+  const navigate = useNavigate('/dashboard/buyer/myOrders');
 
   const {
     data: advertisedProducts = [],
@@ -25,15 +27,16 @@ const Advertisig = () => {
   }
 
   const handelBooking = (product) => {
-    console.log(product);
+    // console.log(product);
     setProduct(product);
     // useBooking Hook fetch
-    refetch();
+    // refetch();
+    
   };
 
   return (
     <div>
-      <h2 className="text-3xl text-center text-primary my-20">Tending Products Advertisig</h2>
+      <h2 className="text-3xl text-center text-primary my-20">Tending Products</h2>
       <div className="grid justify-items-center gap-5 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {advertisedProducts.map((product) => (
           <ProductCard key={product._id} product={product} handelBooking={handelBooking}></ProductCard>

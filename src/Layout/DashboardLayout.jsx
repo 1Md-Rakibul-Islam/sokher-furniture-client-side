@@ -24,7 +24,7 @@ const DashboardLayout = () => {
             <NavBar></NavBar>
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content px-10 mt-20">
+                <div className="drawer-content md:px-10 px-5 mt-20 ">
                     <Outlet></Outlet>
                 </div> 
                 <div className="drawer-side mt-20">
