@@ -15,7 +15,7 @@ const CategorySection = () => {
   return (
     <section>
         <h2 className="text-center font-bold text-primary text-3xl my-16">Categories</h2>
-        <div className="flex flex-wrap gap-5 justify-items-center items-center">
+        <div className="flex flex-wrap gap-5 justify-center items-center">
           {categories.map((categoriy) => (
             <Link to={`/categories/${categoriy.categoriyName}`}>
               <Categoriy key={categoriy._id} categoriy={categoriy}></Categoriy>
