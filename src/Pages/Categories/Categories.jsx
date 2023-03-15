@@ -21,9 +21,8 @@ const Categories = () => {
     }
     
     return (
-        <div className="pt-20">
-        <h2 className="text-center text-primary text-4xl">Products</h2>
-        <div className="md:mx-10 mx-5 grid justify-items-center gap-5 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="pt-20 md:mx-10 sm:mx-5 mx-2 min-h-screen">
+        <div className="grid justify-items-center gap-5 my-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {
             products.map((product) => <ProductCard
               key={product._id}

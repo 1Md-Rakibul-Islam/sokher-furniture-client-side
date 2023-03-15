@@ -10,7 +10,7 @@ import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import useSeller from "../../../Hooks/useSeller";
 import { useQuery } from "@tanstack/react-query";
 
-const ProductCard = ({ product, handelBooking }) => {
+const ProductCard = ({ product}) => {
   const {
     _id,
     category,
@@ -70,7 +70,7 @@ const ProductCard = ({ product, handelBooking }) => {
 
   return (
     <div className="w-full rounded-md shadow-md">
-      <Link to={`products/${_id}`}>
+      <Link to={`/${_id}`}>
         <div className="">
           <figure className="flex justify-center items-center">
             <PhotoProvider>

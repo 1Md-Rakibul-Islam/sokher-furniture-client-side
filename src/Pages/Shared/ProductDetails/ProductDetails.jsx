@@ -135,7 +135,11 @@ const ProductDetails = () => {
                                 </div>
                         </div>
                         <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1 mx-auto ">
-                            <img src={photo} alt="" className="w-full rounded-2xl shadow-lg bg-gray-500" />
+                            <PhotoProvider>
+                                <PhotoView key={_id} src={photo}>
+                                    <img className=" mx-auto rounded-lg shadow-lg bg-gray-500" src={photo} alt="product" />
+                                </PhotoView>
+                            </PhotoProvider>
                             {/* <Carousel 
                                 autoPlay={true}
                                 infiniteLoop={true}
@@ -156,7 +160,7 @@ const ProductDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className='bg-white shadow-2xl mt-5 p-5'>
+                <div className='bg-white shadow-2xl my-5 p-5'>
                     <h2 className="md:text-3xl text-lg mb-5 font-semibold tracking-tight sm:text-3xl ">Product details of "{name}"</h2>
                     <p>{decription}</p>
                 </div>

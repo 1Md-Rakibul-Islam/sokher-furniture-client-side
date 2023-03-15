@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
         element: <Products></Products>,
       },
       {
-        path: "/products/:_id",
+        path: "/:_id",
         loader: async ({params}) => await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/products/${params._id}`),
         element: <ProductDetails></ProductDetails>,
       },

@@ -15,7 +15,7 @@ const productDetails = () => {
 
 
   return (
-    <div className="mx-auto">
+    <div className="mx-auto min-h-screen">
       <h2 className="text-center text-warning my-5 text-4xl">product Details</h2>
       <div className="hero min-h-screen my-5 bg-base-200">
         <div className="hero-content flex flex-col justify-between items-start lg:flex-row">

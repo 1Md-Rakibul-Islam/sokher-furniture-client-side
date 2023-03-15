@@ -131,7 +131,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="md:w-[800px] md:mx-auto mx-5 h-[720px] flex justify-center items-center">
+    <div className="md:w-[800px] md:mx-auto mx-5 h-[720px] min-h-screen flex justify-center items-center">
       <div className="card w-full border shadow-2xl p-7">
         <h2 className="text-3xl my-5 text-center text-primary">Sign Up</h2>
         <form onSubmit={handleSubmit(handelSignUp)} calssName="card">
