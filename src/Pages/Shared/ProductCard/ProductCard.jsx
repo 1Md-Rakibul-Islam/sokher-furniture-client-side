@@ -70,7 +70,7 @@ const ProductCard = ({ product, handelBooking }) => {
 
   return (
     <div className="w-full rounded-md shadow-md">
-      <Link to={`/${_id}`}>
+      <Link to={`products/${_id}`}>
         <div className="">
           <figure className="flex justify-center items-center">
             <PhotoProvider>
@@ -99,82 +99,6 @@ const ProductCard = ({ product, handelBooking }) => {
         </div>
       </Link>
     </div>
-      
-    // <div className="card max-w-96 glass shadow-xl">
-    //   <figure>
-    //     <PhotoProvider>
-    //       <PhotoView key={_id} src={photo}>
-    //         <img className="w-full h-80" src={photo} alt="product" />
-    //       </PhotoView>
-    //     </PhotoProvider>
-    //   </figure>
-    //   <div className="card-body">
-    //     <h2 className="card-title">
-    //       {name}
-    //       <div className="badge badge-lg badge-warning">Category: {category}</div>
-    //     </h2>
-    //     <p>{decription.length > 50 ? decription.slice(0, 110) + "....." : decription}</p>
-    //     <div className="flex mt-2 items-baseline gap-2 text-sm">
-    //       <FaRegClock></FaRegClock>
-    //       <span>Publish: {publish}</span>
-    //     </div>
-    //     <div className="flex mt-2 items-baseline gap-2 text-sm">
-    //       <FaMapMarkerAlt></FaMapMarkerAlt>
-    //       <span>Location: {location}</span>
-    //     </div>
-
-    //     <div className="flex mt-2 items-baseline gap-2 text-sm">
-    //       <FaDollarSign></FaDollarSign>
-    //       <span>Original Price: {originalPrice}</span>
-    //     </div>
-
-    //     <div className="flex mt-2 items-baseline gap-2 text-sm">
-    //       <FaUserClock></FaUserClock>
-    //       <span>Used: {useDuration}</span>
-    //     </div>
-
-    //     <div className="badge p-2 badge-secondary">
-    //       <FaDollarSign></FaDollarSign>
-    //       <span>Price: {reselPrice}</span>
-    //     </div>
-
-    //     <div className="flex gap-4">
-    //       <div className="avatar">
-    //         <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-    //           <img src={sellerPhoto} alt="" />
-    //         </div>
-    //         {
-    //           verified && <FaCheckCircle className="text-xl text-blue-400"></FaCheckCircle>
-    //         }
-    //       </div>
-    //       <div className="flex flex-col my-2">
-    //         <h2 className="text-3px font-bold">Seller: {sellerName ? sellerName : "Not Found"}</h2>
-    //         <p className="text-primary m-0">Email: {sellerEmail}</p>
-    //       </div>
-    //     </div>
-
-    //     <div className="flex justify-between items-center">
-    //       {
-    //           isBuyer &&
-    //           <>
-    //               <button onClick={() => handleReport(_id)} className="btn btn-outline btn-error btn-sm">
-    //                 Report
-    //               </button>
-    //               <label onClick={() => handelBooking(product)} htmlFor="booking-modal" className={`btn btn-primary text-white ${isBooking && user?.email &&'hidden'}`}>
-    //                 {isBooking ? "Booked" : "Booking"}
-    //               </label>
-    //           </>
-    //       }
-
-    //       {isBooking && isBuyer && (
-    //         <button className="btn btn-primary" disabled>
-    //           Booked
-    //         </button>
-    //       )}
-
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 

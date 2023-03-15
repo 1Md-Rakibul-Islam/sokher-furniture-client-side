@@ -22,6 +22,7 @@ import AddProduct from "../../Pages/Dashboard/SellerDashboard/AddProduct/AddProd
 import MyProducts from "../../Pages/Dashboard/SellerDashboard/MyProducts/MyProducts";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import Payment from "../../Pages/Dashboard/Payment/Payment";
+import ProductDetails from "../../Pages/Shared/ProductDetails/ProductDetails";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,11 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <Products></Products>,
+      },
+      {
+        path: "/products/:_id",
+        loader: async ({params}) => await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/products/${params._id}`),
+        element: <ProductDetails></ProductDetails>,
       },
       {
         path: "/about",
