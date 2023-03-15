@@ -3,7 +3,7 @@ import { FaAmazonPay, FaPhone, FaRetweet, FaShippingFast } from 'react-icons/fa'
 
 const Support = () => {
     return (
-        <div>
+        <div className='md:mx-10 mx-5'>
             <h1 className="text-left font-bold text-primary text-2xl my-10">Our Services</h1>
             <div className="grid gap-6 mb-10 md:mx-10 mx-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 <div className="card bordered shadow-xl">

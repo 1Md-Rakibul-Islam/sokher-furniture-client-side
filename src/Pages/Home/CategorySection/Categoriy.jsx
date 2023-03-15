@@ -3,11 +3,11 @@ import React from "react";
 const Categoriy = ({categoriy}) => {
     const {categoriyName, image, decription } = categoriy;
   return (
-    <div className="w-[180px] h-[150px] flex flex-col justify-center items-center">
-      <figure>
-        <img className="w-[120px] h-[120px]  rounded-full" src={image} alt="Categoriy" />
-      </figure>
-      <h2 className="text-lg font-semibold">{categoriyName}</h2>
+    <div class="avatar md:w-[160px] md:h-[150px] w-[100px] h-[120px] flex flex-col items-center">
+      <div class="md:w-24 w-16 mask mask-hexagon">
+        <img src={image} alt="Categoriy"/>
+      </div>
+      <h2 className="md:text-lg text-md font-semibold text-center">{categoriyName}</h2>
     </div>
   );
 };

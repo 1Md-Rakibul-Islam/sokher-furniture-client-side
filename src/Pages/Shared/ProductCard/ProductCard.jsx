@@ -69,32 +69,36 @@ const ProductCard = ({ product, handelBooking }) => {
   };
 
   return (
-      <div className="w-full rounded-sm shadow-md">
-        <figure className="flex justify-center items-center">
-          <PhotoProvider>
-            <PhotoView key={_id} src={photo}>
-              <img className="object-cover object-center w-full rounded-t-sm h-32 bg-gray-500" src={photo} alt="product" />
-            </PhotoView>
-          </PhotoProvider>
-        </figure>
-        <div className="p-4">
-          <h2 className="text-md text-black font-semibold tracking-wide">{name}</h2>
-          <div className="">
-            <div className="badge badge-sm badge-warning">
-                <FaDollarSign></FaDollarSign>
-                <span>{reselPrice}</span>
-            </div>
-            <div className="flex mt-2 items-baseline gap-2 text-sm">
-              <FaMapMarkerAlt></FaMapMarkerAlt>
-              <span>{location}</span>
-            </div>
-            <div className="flex mt-2 items-baseline gap-2 text-sm">
-              <FaUserClock></FaUserClock>
-              <span>Used: {useDuration}</span>
+    <div className="w-full rounded-md shadow-md">
+      <Link to={`/${_id}`}>
+        <div className="">
+          <figure className="flex justify-center items-center">
+            <PhotoProvider>
+              <PhotoView key={_id} src={photo}>
+                <img className="object-cover object-center w-full rounded-t-md h-32 bg-gray-500" src={photo} alt="product" />
+              </PhotoView>
+            </PhotoProvider>
+          </figure>
+          <div className="p-4 flex flex-col justify-end">
+            <h2 className="text-md text-black font-bold tracking-wide">{name}</h2>
+            <div className="">
+              <div className="badge badge-sm badge-warning">
+                  <FaDollarSign></FaDollarSign>
+                  <span>{reselPrice}</span>
+              </div>
+              <div className="flex mt-2 items-baseline gap-2 text-sm">
+                <FaMapMarkerAlt></FaMapMarkerAlt>
+                <span>{location}</span>
+              </div>
+              <div className="flex mt-2 items-baseline gap-2 text-sm">
+                <FaUserClock></FaUserClock>
+                <span>Used: {useDuration}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Link>
+    </div>
       
     // <div className="card max-w-96 glass shadow-xl">
     //   <figure>
