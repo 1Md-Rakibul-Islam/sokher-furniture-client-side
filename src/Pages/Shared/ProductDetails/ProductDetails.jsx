@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaCheckCircle, FaDollarSign, FaMapMarkerAlt, FaRegClock, FaUserClock } from 'react-icons/fa';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { useLoaderData } from 'react-router-dom';
@@ -6,6 +6,8 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import useBuyer from '../../../Hooks/useBuyer';
 import useBooking from '../../../Hooks/useBooking';
 import Loading from '../Loading/Loading';
+import { Carousel } from 'react-responsive-carousel';
+import BookingModal from '../BookingModal/BookingModal';
 
 const ProductDetails = () => {
 
@@ -25,8 +27,8 @@ const ProductDetails = () => {
         sellerPhoto,
         publish,
       } = useLoaderData();
-    
-      // console.log(product);
+
+       const product = { _id, name, photo, reselPrice, sellerEmail }
     
       const { user } = useContext(AuthContext);
       const [isBuyer, isBuyerLoading] = useBuyer(user?.email);
@@ -66,6 +68,7 @@ const ProductDetails = () => {
         // console.log(reportedProduct);
       };
 
+
     return (
         <section className="bg-slate-100">
             <div className="container md:pt-32 pt-20 max-w-xl mx-auto lg:px-8 lg:max-w-7xl">
@@ -73,80 +76,83 @@ const ProductDetails = () => {
                     <div className="grid lg:gap-8 lg:grid-cols-2 ">
                         <div className="lg:col-start-2 flex flex-col justify-between">
                             <div>
-                                <h2 className="md:text-3xl text-2xl mb-5 font-bold tracking-tight sm:text-3xl ">{name}</h2>
-                                <div className="badge badge-lg badge-warning">Category: {category}</div>
+                                <h2 className="md:text-3xl text-2xl mb-2 font-bold tracking-tight sm:text-3xl ">{name}</h2>
+                                <p className="mb-5">Category: {category}</p>
                                 <div className='mt-10'>
-                                <div className="flex md:mt-5 mt-2 items-baseline gap-2 md:text-lg text-sm">
-                                    <FaRegClock></FaRegClock>
-                                    <span>Publish: {publish}</span>
+                                    <div className="flex md:mt-5 mt-2 items-baseline gap-2 md:text-lg text-sm">
+                                        <FaRegClock></FaRegClock>
+                                        <span>Publish: {publish}</span>
                                     </div>
                                     <div className="flex md:mt-5 mt-2 items-baseline gap-2 md:text-lg text-sm">
-                                    <FaMapMarkerAlt></FaMapMarkerAlt>
-                                    <span>Location: {location}</span>
+                                        <FaMapMarkerAlt></FaMapMarkerAlt>
+                                        <span>Location: {location}</span>
+                                    </div>
+                                    <div className="flex md:mt-5 mt-2 items-baseline gap-2 md:text-lg text-sm">
+                                        <FaDollarSign></FaDollarSign>
+                                        <span>Original Price: {originalPrice}</span>
                                     </div>
 
                                     <div className="flex md:mt-5 mt-2 items-baseline gap-2 md:text-lg text-sm">
-                                    <FaDollarSign></FaDollarSign>
-                                    <span>Original Price: {originalPrice}</span>
+                                        <FaUserClock></FaUserClock>
+                                        <span>Used: {useDuration}</span>
                                     </div>
-
-                                    <div className="flex md:mt-5 mt-2 items-baseline gap-2 md:text-lg text-sm">
-                                    <FaUserClock></FaUserClock>
-                                    <span>Used: {useDuration}</span>
+                                    <div className="badge badge-lg badge-warning flex md:mt-5 mt-2 gap-2 md:text-lg text-sm">
+                                        <FaDollarSign></FaDollarSign>
+                                        <span>Price: {reselPrice}</span>
                                     </div>
-
-                                    <div className="badge badge-md p-2 md:mt-5 mt-2 badge-secondary">
-                                    <FaDollarSign></FaDollarSign>
-                                    <span>Price: {reselPrice}</span>
+                                </div>
+                            </div>
+                            <div className="flex gap-4 my-3">
+                                <div className="avatar">
+                                    <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <img src={sellerPhoto} alt="" />
                                     </div>
-
+                                    {
+                                    verified && <FaCheckCircle className="text-xl text-blue-400"></FaCheckCircle>
+                                    }
+                                </div>
+                                <div className="flex flex-col my-2">
+                                    <h2 className="text-3px font-bold">Seller: {sellerName ? sellerName : "Not Found"}</h2>
+                                    <p className="text-primary m-0">Email: {sellerEmail}</p>
                                 </div>
                             </div>
                             <div className="">
                                     <div className="flex justify-between items-center">
                                     {
-                                        isBuyer &&
+                                        isBuyer && user?.email &&
                                         <>
-                                            <button onClick={() => handleReport(_id)} className="btn btn-outline btn-error btn-sm">
+                                            <button onClick={() => handleReport(_id)} className={`btn btn-outline btn-error btn-sm `}>
+                                            {/* <button onClick={() => handleReport(_id)} className={`btn btn-outline btn-error btn-sm ${user?.email && 'hidden'}`}> */}
                                                 Report
                                             </button>
-                                            <label onClick={() => handelBooking(product)} htmlFor="booking-modal" className={`btn btn-primary text-white ${isBooking && user?.email &&'hidden'}`}>
-                                                {"Booking"}
+                                            <label htmlFor="booking-modal" className={`btn btn-primary text-white `}>
+                                                Order Now
                                             </label>
                                         </>
                                     }
-
-                                    {isBuyer && (
-                                        <button className="btn btn-primary" disabled>
-                                        Booked
-                                        </button>
-                                    )}
-
                                     </div>
+                                    <div>{product && <BookingModal product={product}></BookingModal>}</div>
                                 </div>
-                                {/* <div className="flex">
-                                    <div className="flex-shrink-0">
-                                        <div className="flex items-center justify-center w-12 h-12 rounded-md bg-sky-400 ">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-7 h-7">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div className="ml-4">
-                                        <h4 className="text-lg font-medium leading-6 ">Cibo augue offendit has ad</h4>
-                                        <p className="mt-2 ">An per velit appellantur, ut utinam minimum nominavi sit, odio nostro habemus ne nec. Ne sonet regione contentiones est.</p>
-                                    </div>
-                                </div> */}
                         </div>
-                        <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
-                            {/* <img src="https://source.unsplash.com/random/361x481" alt="" className="mx-auto rounded-lg shadow-lg bg-gray-500" /> */}
-                            <figure>
-                              <PhotoProvider>
-                                <PhotoView key={_id} src={photo}>
-                                  <img className=" mx-auto rounded-lg shadow-lg bg-gray-500" src={photo} alt="product" />
-                                </PhotoView>
-                              </PhotoProvider>
-                            </figure>
+                        <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1 mx-auto ">
+                            <img src={photo} alt="" className="w-full rounded-2xl shadow-lg bg-gray-500" />
+                            {/* <Carousel 
+                                autoPlay={true}
+                                infiniteLoop={true}
+                                dynamicHeight={true}
+                                interval={2000}
+                                // selectedItem={selectImg}
+                            >
+                                {
+                                images?.map( img => <div className="w-auto h-auto">
+                                    <PhotoProvider>
+                                        <PhotoView key={_id} src={photo}>
+                                        <img className=" mx-auto rounded-lg shadow-lg bg-gray-500" src={photo} alt="product" />
+                                        </PhotoView>
+                                    </PhotoProvider>
+                                </div>)
+                                }
+                            </Carousel> */}
                         </div>
                     </div>
                 </div>
@@ -156,14 +162,6 @@ const ProductDetails = () => {
                 </div>
             </div>
         </section>
-    // <section className="card max-w-5xl mx-auto glass shadow-xl">
-    //   <figure>
-    //     <PhotoProvider>
-    //       <PhotoView key={_id} src={photo}>
-    //         <img className="w-full h-80" src={photo} alt="product" />
-    //       </PhotoView>
-    //     </PhotoProvider>
-    //   </figure>
     );
 };
 

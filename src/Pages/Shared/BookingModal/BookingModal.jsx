@@ -1,13 +1,15 @@
 import React from "react";
 import { useContext } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 //
 const BookingModal = ({ product }) => {
   const { _id, name, photo, reselPrice, sellerEmail } = product;
 
   const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate('/dashboard/buyer/myOrders')
 
   const handelBooking = (event) => {
     event.preventDefault();
@@ -31,7 +33,7 @@ const BookingModal = ({ product }) => {
       sellerEmail,
     };
 
-    console.log(booking);
+    // console.log(booking);
 
     fetch("https://sokher-furniture-1md-rakibul-islam.vercel.app/bookings", {
       method: "POST",
@@ -44,8 +46,8 @@ const BookingModal = ({ product }) => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          toast.success("Booking confirmed");
-          toast.success("Plase refresh your browser");
+          toast.success("Add to Wishlist");
+          navigate();
         } else {
           toast.error(data.message);
         }
