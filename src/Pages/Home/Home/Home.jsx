@@ -7,6 +7,7 @@ import Banner from "../Banner/Banner";
 import CategorySection from "../CategorySection/CategorySection";
 import NewArrivals from "../NewArrivals/NewArrivals";
 import Support from "../Support/Support";
+import JustForYou from "./JustForYou/JustForYou";
 
 const Home = () => {
   // {products, isLoading, refetch , itemsCategory}
@@ -27,6 +28,7 @@ const Home = () => {
         itemsCategory="New Arrivals"
       /> */}
       <Discount />
+      <JustForYou />
       <Support />
     </div>
   );
