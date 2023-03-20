@@ -23,6 +23,7 @@ const Home = () => {
     <div className=" lg:mx-10 ">
       <Banner />
       <CategorySection />
+      <FetureBanner />
       <Advertisig />
       <NewArrivals />
       {/* <ItemsSection 
@@ -34,7 +35,7 @@ const Home = () => {
       <Discount />
       <CategoryCardSection />
       <JustForYou />
-      <FetureBanner />
+      
       <Gallery />
       <Support />
       <ContactUs />

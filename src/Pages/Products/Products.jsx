@@ -29,8 +29,8 @@ const Products = () => {
     
 
     return (
-        <div className='pt-20 md:mx-10 mx-5 min-h-screen'>
-            <h2 className="text-center font-bold text-primary text-3xl my-16">All Products</h2>
+        <div className='pt-16 md:mx-10 mx-5 min-h-screen'>
+            <h2 className="text-center font-bold text-primary text-3xl my-10">All Products</h2>
             <div className='grid justify-items-center gap-5 my-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-6'>
                 {
                     products.map( product => <ProductCard

@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import Brand from "../../../Components/Brand";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -62,7 +63,7 @@ const NavBar = () => {
 
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl"><span className="text-4xl text-primary">s</span>okher <span className="text-3xl text-primary"> F</span>urniture</a>
+        <Brand />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
