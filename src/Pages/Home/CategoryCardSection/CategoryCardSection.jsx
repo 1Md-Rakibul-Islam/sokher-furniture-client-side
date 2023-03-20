@@ -13,8 +13,9 @@ const CategoryCardSection = () => {
         });
     }, []);
     return (
-      <section className='md:mx-80 md:my-20 my-10'>
-          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-2 justify-center items-center">
+      <section className=' md:my-20 my-10'>
+        <h2 className="text-left font-bold text-primary text-2xl my-10 mx-5">Categories</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-2 justify-center items-center md:mx-80">
             {categories.map((categoriy) => (
               <Link to={`/categories/${categoriy.categoriyName}`}>
                 <CategoriyCard key={categoriy._id} categoriy={categoriy}></CategoriyCard>

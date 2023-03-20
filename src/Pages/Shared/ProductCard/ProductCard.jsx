@@ -75,7 +75,7 @@ const ProductCard = ({ product}) => {
           <figure className="flex justify-center items-center">
             <PhotoProvider>
               <PhotoView key={_id} src={photo}>
-                <img className="object-cover object-center w-full h-40 bg-gray-500" src={photo} alt="product" />
+                <img className="object-cover object-center w-full h-44 bg-gray-500" src={photo} alt="product" />
               </PhotoView>
             </PhotoProvider>
           </figure>

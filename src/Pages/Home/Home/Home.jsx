@@ -9,6 +9,8 @@ import CategorySection from "../CategorySection/CategorySection";
 import Gallery from "../Gallery/Gallery";
 import NewArrivals from "../NewArrivals/NewArrivals";
 import Support from "../Support/Support";
+import ContactUs from "./ContactUs/ContactUs";
+import FetureBanner from "./FetureBanner/FetureBanner";
 import JustForYou from "./JustForYou/JustForYou";
 
 const Home = () => {
@@ -32,8 +34,10 @@ const Home = () => {
       <Discount />
       <CategoryCardSection />
       <JustForYou />
-      <Support />
+      <FetureBanner />
       <Gallery />
+      <Support />
+      <ContactUs />
     </div>
   );
 };
