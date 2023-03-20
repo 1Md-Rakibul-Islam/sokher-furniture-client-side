@@ -15,12 +15,12 @@ const productDetails = () => {
 
 
   return (
-    <div className="mx-auto min-h-screen">
+    <div className="p-10">
       <h2 className="text-center text-warning my-5 text-4xl">product Details</h2>
       <div className="hero min-h-screen my-5 bg-base-200">
         <div className="hero-content flex flex-col justify-between items-start lg:flex-row">
           <div className="">
-            <div className="card grid md:grid-cols-2 grid-cols-1 lg:card-side bg-base-100 shadow-xxl">
+            <div className="card grid md:grid-cols-2 grid-cols-1 lg:card-side bg-base-100 shadow-xxl ">
               <figure className="">
                 <img className="" src={image} alt="image" />
               </figure>

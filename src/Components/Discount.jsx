@@ -3,8 +3,8 @@ import discountImg1 from "../assets/images/discountImg1.jpg";
 const Discount = () => {
     return (
         <section className='text-gray-900'>
-            <div className='w-full flex flex-col justify-center items-center'>
-                <img className='w-full md:h-[300px] h-[240px]' src={discountImg1} alt='' />
+            <div className='w-full md:h-[300px] h-[200px]'>
+                <img className='w-full md:h-[300px] h-[180px]' src={discountImg1} alt='' />
             </div>
         </section>
         // <section className="p-6 py-12 bg-sky-400 max-w-6xl mx-auto text-gray-900">

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaCheckCircle, FaDollarSign, FaMapMarkerAlt, FaRegClock, FaUserClock } from "react-icons/fa";
+import { FaArrowRight, FaCheckCircle, FaDollarSign, FaMapMarkerAlt, FaRegClock, FaUserClock } from "react-icons/fa";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import useBuyer from "../../../Hooks/useBuyer";
@@ -69,21 +69,21 @@ const ProductCard = ({ product}) => {
   };
 
   return (
-    <div className="w-full rounded-md shadow-md">
-      <Link to={`/${_id}`}>
+    <div className="w-full shadow-md">
+      
         <div className="">
           <figure className="flex justify-center items-center">
             <PhotoProvider>
               <PhotoView key={_id} src={photo}>
-                <img className="object-cover object-center w-full rounded-t-md h-32 bg-gray-500" src={photo} alt="product" />
+                <img className="object-cover object-center w-full h-40 bg-gray-500" src={photo} alt="product" />
               </PhotoView>
             </PhotoProvider>
           </figure>
           <div className="p-4 flex flex-col justify-end">
-            <h2 className="text-sm text-black font-semibold">{name}</h2>
+            <h2 className="text-md text-black font-semibold">{name}</h2>
             <div className="">
-              <div className="flex mt-2 items-baseline gap-2 text-lg text-orange-600">
-              {/* <div className="badge badge-sm badge-warning"> */}
+              {/* <div className="flex mt-2 items-baseline gap-2 text-lg text-orange-600"> */}
+              <div className="badge badge-sm badge-warning">
                   <FaDollarSign></FaDollarSign>
                   <span>{reselPrice}</span>
               </div>
@@ -91,14 +91,18 @@ const ProductCard = ({ product}) => {
                 <FaMapMarkerAlt></FaMapMarkerAlt>
                 <span>{location}</span>
               </div>
-              <div className="flex mt-2 items-baseline gap-2 text-sm">
-                <FaUserClock></FaUserClock>
-                <span>{useDuration}</span>
+              <div className="flex flex-wrap justify-between mt-2 items-baseline gap-2 text-sm">
+                <div className="flex mt-2 items-baseline gap-2 text-sm">
+                  <FaUserClock></FaUserClock>
+                  <span>{useDuration}</span>
+                </div>
+                <Link to={`/${_id}`}>
+                  <button className="btn btn-xs btn-outline rounded-full btn-primary">Details <FaArrowRight className="ml-2" /></button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
-      </Link>
     </div>
   );
 };

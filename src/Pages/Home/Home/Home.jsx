@@ -4,7 +4,9 @@ import Discount from "../../../Components/Discount";
 import ItemsSection from "../../../Components/ItemsSection";
 import Advertisig from "../Advertisig/Advertisig";
 import Banner from "../Banner/Banner";
+import CategoryCardSection from "../CategoryCardSection/CategoryCardSection";
 import CategorySection from "../CategorySection/CategorySection";
+import Gallery from "../Gallery/Gallery";
 import NewArrivals from "../NewArrivals/NewArrivals";
 import Support from "../Support/Support";
 import JustForYou from "./JustForYou/JustForYou";
@@ -16,7 +18,7 @@ const Home = () => {
   console.log(Products);
 
   return (
-    <div className="mx-5 lg:mx-10 ">
+    <div className=" lg:mx-10 ">
       <Banner />
       <CategorySection />
       <Advertisig />
@@ -28,8 +30,10 @@ const Home = () => {
         itemsCategory="New Arrivals"
       /> */}
       <Discount />
+      <CategoryCardSection />
       <JustForYou />
       <Support />
+      <Gallery />
     </div>
   );
 };

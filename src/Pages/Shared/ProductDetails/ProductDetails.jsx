@@ -71,13 +71,13 @@ const ProductDetails = () => {
 
     return (
         <section className="bg-slate-100">
-            <div className="container md:pt-32 pt-20 max-w-xl mx-auto lg:px-8 lg:max-w-7xl">
+            <div className="container md:pt-32 pt-20 max-w-xl mx-auto p-5 lg:px-8 lg:max-w-7xl">
                 <div className='bg-white md:p-10 sm:p-5'>
                     <div className="grid lg:gap-8 lg:grid-cols-2 ">
-                        <div className="lg:col-start-2 flex flex-col justify-between">
-                            <div>
+                        <div className="lg:col-start-2 flex flex-col justify-between p-5">
+                            <div className=''>
                                 <h2 className="md:text-3xl text-2xl mb-2 font-bold tracking-tight sm:text-3xl ">{name}</h2>
-                                <p className="mb-5">Category: {category}</p>
+                                <p className="md:mb-5 mb-2">Category: {category}</p>
                                 <div className='mt-10'>
                                     <div className="flex md:mt-5 mt-2 items-baseline gap-2 md:text-lg text-sm">
                                         <FaRegClock></FaRegClock>
@@ -125,7 +125,7 @@ const ProductDetails = () => {
                                             {/* <button onClick={() => handleReport(_id)} className={`btn btn-outline btn-error btn-sm ${user?.email && 'hidden'}`}> */}
                                                 Report
                                             </button>
-                                            <label htmlFor="booking-modal" className={`btn btn-primary text-white `}>
+                                            <label htmlFor="booking-modal" className={`btn btn-sm md:btn-md btn-primary text-white `}>
                                                 Order Now
                                             </label>
                                         </>
