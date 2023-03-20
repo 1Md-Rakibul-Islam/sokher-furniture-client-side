@@ -51,8 +51,8 @@ const Bannder = () => {
     ]
 
     return (
-    <div className="pt-20">
-        <div className='w-full md:h-[55vh] h-[240px]'>
+    <div className="pt-16">
+        <div className='w-full md:h-[55vh] h-[220px]'>
             <Carousel
              wrapAround={true} 
              autoplay={true}
@@ -60,7 +60,7 @@ const Bannder = () => {
              cellAlign={'center'}
              >
                 {
-                    bannerData2?.map( img => <img className='w-full md:h-[55vh] h-[240px]' src={img?.image} />)
+                    bannerData2?.map( img => <img className='w-full md:h-[55vh] h-[220px]' src={img?.image} />)
                 }
             </Carousel>
         </div>

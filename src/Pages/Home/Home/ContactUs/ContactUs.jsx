@@ -2,9 +2,9 @@ import React from 'react';
 
 const ContactUs = () => {
     return (
-        <section className="py-10 bg-purple-200 my-20 md:my-32  text-black">
+        <section className="py-10 bg-purple-200 my-20 md:my-32 mx-5 text-black">
             <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x-2 divide-black">
-                <div className="py-6 md:py-0 md:px-6">
+                <div className="flex flex-col justify-center items-start py-6 md:py-0 md:px-6">
                     <h1 className="text-4xl font-bold">Get in touch</h1>
                     <p className="pt-2 pb-4">Fill in the form to start a conversation</p>
                     <div className="space-y-4">
@@ -32,15 +32,15 @@ const ContactUs = () => {
                 <form novalidate="" className="flex  flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid">
                 
                 <div>
-                    <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 ">Last name</label>
+                    <label for="last_name" class="block mb-2 text-lg font-medium text-gray-900 ">Last name</label>
                     <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Johan Khan" required />
                 </div>
                 <div class="mb-6">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email address</label>
+                    <label for="email" class="block mb-2 text-lg font-medium text-gray-900 ">Email address</label>
                     <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="john.doe@company.com" required />
                 </div>
                 
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 ">Your message</label>
+                <label for="message" class="block mb-2 text-lg font-medium text-gray-900 ">Your message</label>
                 <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
  
                     <button type="button" className="btn btn-primary rounded-full">Submit</button>
