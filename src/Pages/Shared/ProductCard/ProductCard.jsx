@@ -80,9 +80,10 @@ const ProductCard = ({ product}) => {
             </PhotoProvider>
           </figure>
           <div className="p-4 flex flex-col justify-end">
-            <h2 className="text-md text-black font-bold tracking-wide">{name}</h2>
+            <h2 className="text-sm text-black font-semibold">{name}</h2>
             <div className="">
-              <div className="badge badge-sm badge-warning">
+              <div className="flex mt-2 items-baseline gap-2 text-lg text-orange-600">
+              {/* <div className="badge badge-sm badge-warning"> */}
                   <FaDollarSign></FaDollarSign>
                   <span>{reselPrice}</span>
               </div>
@@ -92,7 +93,7 @@ const ProductCard = ({ product}) => {
               </div>
               <div className="flex mt-2 items-baseline gap-2 text-sm">
                 <FaUserClock></FaUserClock>
-                <span>Used: {useDuration}</span>
+                <span>{useDuration}</span>
               </div>
             </div>
           </div>
