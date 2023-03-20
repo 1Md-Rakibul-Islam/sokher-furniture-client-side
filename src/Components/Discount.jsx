@@ -4,7 +4,7 @@ const Discount = () => {
     return (
         <section className='text-gray-900'>
             <div className='w-full flex flex-col justify-center items-center'>
-                <img className='w-full h-[300px]' src={discountImg1} alt='' />
+                <img className='w-full md:h-[300px] h-[240px]' src={discountImg1} alt='' />
             </div>
         </section>
         // <section className="p-6 py-12 bg-sky-400 max-w-6xl mx-auto text-gray-900">
