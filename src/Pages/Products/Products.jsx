@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
+import Bannder from '../Home/Banner/Banner';
 import BookingModal from '../Shared/BookingModal/BookingModal';
 import Loading from '../Shared/Loading/Loading';
 import ProductCard from '../Shared/ProductCard/ProductCard';
@@ -30,7 +31,8 @@ const Products = () => {
 
     return (
         <div className='pt-16 md:mx-10 mx-5 min-h-screen'>
-            <h2 className="text-center font-bold text-primary text-3xl my-10">All Products</h2>
+            <Bannder />
+            <h2 className="font-bold text-3xl my-10">Our Products</h2>
             <div className='grid justify-items-center gap-5 my-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-6'>
                 {
                     products.map( product => <ProductCard
@@ -57,7 +59,7 @@ export default Products;
 //   };
 
     // <div className="md:mx-10 sm:mx-5 mx-2">
-    //   <h2 className="text-left font-bold text-primary text-2xl my-10">Tending Products</h2>
+    //   <h2 className="text-left font-bold text-2xl my-10">Tending Products</h2>
     //   {/* <SectionHeader>Tending Products</SectionHeader> */}
     //   <div className="grid justify-items-center gap-5 my-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
     //     {advertisedProducts.map((product) => (

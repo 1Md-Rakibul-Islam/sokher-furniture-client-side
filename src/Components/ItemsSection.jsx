@@ -18,7 +18,7 @@ const ItemsSection = ({Products, itemsCategory}) => {
   
     return (
       <div className="md:mx-10 sm:mx-5 mx-2">
-        <h2 className="text-left font-bold text-primary text-2xl my-10">{itemsCategory}</h2>
+        <h2 className="text-left font-bold text-2xl my-10">{itemsCategory}</h2>
         {/* <SectionHeader>Tending Products</SectionHeader> */}
         <div className="grid justify-items-center gap-5 my-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {Products?.map((product) => (
