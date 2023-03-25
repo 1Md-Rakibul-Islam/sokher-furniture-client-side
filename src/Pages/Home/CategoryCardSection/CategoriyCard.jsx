@@ -8,8 +8,8 @@ const CategoriyCard = ({categoriy}) => {
     return (
         <div>
             <Link to={`/categories/${categoriy.categoriyName}`}>
-                <div className="w-full bg-white shadow-2xl ">
-                    <img src={image} className="w-full h-80 " alt="" />
+                <div className="w-full sm:max-w-[260px] h-[350px] mx-auto bg-white shadow-2xl ">
+                    <img src={image} className="w-full max-w-[260px] h-[350px]" alt="" />
                     <div className='flex justify-center items-center -mt-24'>
                         <button className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2">
                             {categoriyName}
