@@ -6,6 +6,7 @@ import Advertisig from "../Advertisig/Advertisig";
 import Banner from "../Banner/Banner";
 import CategoryCardSection from "../CategoryCardSection/CategoryCardSection";
 import CategorySection from "../CategorySection/CategorySection";
+import Clients from "../Clients/Clients";
 import Gallery from "../Gallery/Gallery";
 import NewArrivals from "../NewArrivals/NewArrivals";
 import Support from "../Support/Support";
@@ -35,7 +36,7 @@ const Home = () => {
       <Discount />
       <CategoryCardSection />
       <JustForYou />
-      
+      <Clients />
       <Gallery />
       <Support />
       <ContactUs />

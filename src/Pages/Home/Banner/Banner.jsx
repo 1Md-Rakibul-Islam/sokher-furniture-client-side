@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BannerItem from './BannerItem/BannerItem';
 import slider1 from '../../../assets/images/slider1.jpg';
-import slider2 from '../../../assets/images/slider2.jpg';
+import slider2 from '../../../assets/images/slider2.webp';
 import slider3 from '../../../assets/images/slider3.jpg';
 import slider4 from '../../../assets/images/slider4.jpeg';
 import slider5 from '../../../assets/images/slider5.jpg';
@@ -23,12 +23,6 @@ const Bannder = () => {
             title: 'Easy Living',
             Decription: 'Hot stuff, new stuff, fun stuff, soon be your stuff?',
             next: 3
-        },
-        {   
-            id: 3,
-            image: slider3,
-            title: 'Very low of coast',
-            Decription: 'Hot stuff, new stuff, fun stuff, soon be your stuff?'
         },
         {   
             id: 4,

@@ -30,7 +30,7 @@ const Products = () => {
     
 
     return (
-        <div className='pt-16 md:mx-10 mx-5 min-h-screen'>
+        <div className='md:mx-10 mx-5 min-h-screen'>
             <Bannder />
             <h2 className="font-bold text-3xl my-10">Our Products</h2>
             <div className='grid justify-items-center gap-5 my-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-6'>
