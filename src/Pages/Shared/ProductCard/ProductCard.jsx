@@ -79,29 +79,29 @@ const ProductCard = ({ product}) => {
               </PhotoView>
             </PhotoProvider>
           </figure>
-          <div className="p-4 flex flex-col justify-end">
-            <h2 className="text-md text-black font-semibold">{name}</h2>
-            <div className="">
-              {/* <div className="flex mt-2 items-baseline gap-2 text-lg text-orange-600"> */}
-              <div className="badge badge-sm badge-warning">
-                  <FaDollarSign></FaDollarSign>
-                  <span>{reselPrice}</span>
-              </div>
-              <div className="flex items-baseline gap-2 text-sm">
-                <FaMapMarkerAlt></FaMapMarkerAlt>
-                <span>{location}</span>
-              </div>
-              <div className="flex flex-wrap justify-between mt-2 items-baseline gap-2 text-sm">
-                <div className="flex items-baseline gap-2 text-sm">
-                  <FaUserClock></FaUserClock>
-                  <span>{useDuration}</span>
+          <Link to={`/${_id}`}>
+            <div className="p-4 flex flex-col justify-end">
+              <h2 className="text-md text-black font-semibold">{name}</h2>
+              <div className="">
+                {/* <div className="flex mt-2 items-baseline gap-2 text-lg text-orange-600"> */}
+                <div className="badge badge-sm badge-warning">
+                    <FaDollarSign></FaDollarSign>
+                    <span>{reselPrice}</span>
                 </div>
-                <Link to={`/${_id}`}>
+                <div className="flex items-baseline gap-2 text-sm">
+                  <FaMapMarkerAlt></FaMapMarkerAlt>
+                  <span>{location}</span>
+                </div>
+                <div className="flex flex-wrap justify-between mt-2 items-baseline gap-2 text-sm">
+                  <div className="flex items-baseline gap-2 text-sm">
+                    <FaUserClock></FaUserClock>
+                    <span>{useDuration}</span>
+                  </div>
                   <button className="btn btn-xs btn-outline rounded-full btn-primary">Details <FaArrowRight className="ml-2" /></button>
-                </Link>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
     </div>
   );

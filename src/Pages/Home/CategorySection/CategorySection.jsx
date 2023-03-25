@@ -13,7 +13,7 @@ const CategorySection = () => {
       });
   }, []);
   return (
-    <section>
+    <section className="mb-20">
         <h2 className="text-center font-bold text-3xl my-10">Categories</h2>
         <div className="flex flex-wrap md:gap-5 gap-2 justify-center items-center">
           {categories.map((categoriy) => (
