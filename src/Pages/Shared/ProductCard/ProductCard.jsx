@@ -87,12 +87,12 @@ const ProductCard = ({ product}) => {
                   <FaDollarSign></FaDollarSign>
                   <span>{reselPrice}</span>
               </div>
-              <div className="flex mt-2 items-baseline gap-2 text-sm">
+              <div className="flex items-baseline gap-2 text-sm">
                 <FaMapMarkerAlt></FaMapMarkerAlt>
                 <span>{location}</span>
-              </div>
+              </div>s
               <div className="flex flex-wrap justify-between mt-2 items-baseline gap-2 text-sm">
-                <div className="flex mt-2 items-baseline gap-2 text-sm">
+                <div className="flex items-baseline gap-2 text-sm">
                   <FaUserClock></FaUserClock>
                   <span>{useDuration}</span>
                 </div>
