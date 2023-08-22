@@ -37,7 +37,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         // console.log(user);
-        toast.success('Login Successfully')
+        toast.success("Login Successfully");
         setLoginUserEmail(data.email);
       })
       .catch((error) => {
@@ -49,11 +49,19 @@ const Login = () => {
   };
 
   return (
-    <div className="h-[650px] min-h-screen flex justify-center items-center">
-      <div className="card border w-80 md:w-96 shadow-2xl p-7">
+    <div
+      style={{
+        backgroundImage: "url(https://i.ibb.co/GxzQmwJ/banner.jpg)",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+      className="min-h-screen flex justify-center items-center"
+    >
+      <div className="card backdrop-blur-md border w-80 md:w-96 shadow-2xl p-7">
         <h2 className="text-xl text-center text-primary">Login</h2>
         <form onSubmit={handleSubmit(handelLogin)}>
-          <div className="form-control w-full mt-5">
+          <div className="form-control text-white w-full mt-5">
             <label htmlFor="label">
               {" "}
               <span>Email</span>
@@ -64,9 +72,11 @@ const Login = () => {
               })}
               className="input input-bordered"
             />
-            {errors.email && <small className="text-error mt-2">{errors.email?.message}</small>}
+            {errors.email && (
+              <small className="text-error mt-2">{errors.email?.message}</small>
+            )}
           </div>
-          <div className="form-control w-full mt-5">
+          <div className="form-control text-white w-full mt-5">
             <label htmlFor="label">
               {" "}
               <span>Password</span>
@@ -74,19 +84,34 @@ const Login = () => {
             <input
               {...register("password", {
                 required: "Password required",
-                minLength: { value: 6, message: "Password must be 6 charecters or longer" },
+                minLength: {
+                  value: 6,
+                  message: "Password must be 6 charecters or longer",
+                },
               })}
               className="input input-bordered"
             />
-            {errors.password && <small className="text-error mt-2">{errors.password?.message}</small>}
+            {errors.password && (
+              <small className="text-error mt-2">
+                {errors.password?.message}
+              </small>
+            )}
           </div>
-          <span>Forget Password?</span>
-          <div>{loginError && <span className="my-2 text-error">{loginError}</span>}</div>
-          <input className="w-full mt-5 btn bg-primary text-white" type="submit" value="Login" />
+          <span className="text-gray-300 underline cursor-pointer mt-3">Forget Password?</span>
+          <div>
+            {loginError && (
+              <span className="my-2 text-error">{loginError}</span>
+            )}
+          </div>
+          <input
+            className="w-full mt-5 btn bg-primary text-white"
+            type="submit"
+            value="Login"
+          />
         </form>
-        <p>
+        <p className="text-white">
           New to Medi Care{" "}
-          <Link className="text-secondary" to="/signup">
+          <Link className="text-blue-600 ml-2 underline" to="/signup">
             Create a new account?
           </Link>
         </p>
