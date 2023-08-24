@@ -21,18 +21,12 @@ const Home = () => {
   console.log(Products);
 
   return (
-    <div className=" lg:mx-10 ">
+    <div className="lg:px-10 bg-gray-50">
       <Banner />
       <CategorySection />
       <FetureBanner />
       <Advertisig />
       <NewArrivals />
-      {/* <ItemsSection 
-        Products={Products}
-        // isLoading={productsIsLoading}
-        // refetch={refetch}
-        itemsCategory="New Arrivals"
-      /> */}
       <Discount />
       <CategoryCardSection />
       <JustForYou />

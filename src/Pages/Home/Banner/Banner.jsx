@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import BannerItem from './BannerItem/BannerItem';
+import slider0 from '../../../assets/images/slider0.jpg';
 import slider1 from '../../../assets/images/slider1.jpg';
 import slider2 from '../../../assets/images/slider2.webp';
 import slider3 from '../../../assets/images/slider3.jpg';
@@ -11,6 +12,12 @@ import Carousel from 'nuka-carousel/lib/carousel';
 const Bannder = () => {
 
     const bannerData2 = [
+        {   
+            id: 0,
+            image: slider0,
+            title: 'Sofa Collection',
+            Decription: 'Hot stuff, new stuff, fun stuff, soon be your stuff?'
+        },
         {   
             id: 1,
             image: slider1,

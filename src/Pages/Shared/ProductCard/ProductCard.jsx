@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaArrowRight, FaCheckCircle, FaDollarSign, FaMapMarkerAlt, FaRegClock, FaUserClock } from "react-icons/fa";
+import { FaArrowRight, FaDollarSign, FaMapMarkerAlt, FaRegClock, FaUserClock } from "react-icons/fa";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import useBuyer from "../../../Hooks/useBuyer";
 import useBooking from "../../../Hooks/useBooking";
 import Loading from "../Loading/Loading";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
-import useSeller from "../../../Hooks/useSeller";
-import { useQuery } from "@tanstack/react-query";
 
 const ProductCard = ({ product}) => {
   const {
@@ -69,9 +67,8 @@ const ProductCard = ({ product}) => {
   };
 
   return (
-    <div className="w-full shadow-md">
-      
-        <div className="">
+    <div className="w-full bg-white hover:shadow-lg">
+        <div>
           <figure className="flex justify-center items-center">
             <PhotoProvider>
               <PhotoView key={_id} src={photo}>
@@ -83,7 +80,6 @@ const ProductCard = ({ product}) => {
             <div className="p-4 flex flex-col justify-end">
               <h2 className="text-md text-black font-semibold">{name}</h2>
               <div className="">
-                {/* <div className="flex mt-2 items-baseline gap-2 text-lg text-orange-600"> */}
                 <div className="badge badge-sm badge-warning">
                     <FaDollarSign></FaDollarSign>
                     <span>{reselPrice}</span>

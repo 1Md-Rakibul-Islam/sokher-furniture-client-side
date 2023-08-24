@@ -88,9 +88,6 @@ const SignUp = () => {
         const user = result.user;
         // console.log(user.email);
         setBuyer(user.email);
-        // if (isBuyerLoading) {
-        //   return <Loading></Loading>
-        // }
         // console.log('buy:', buyer)
         saveUser("buyer", user?.displayName, user?.email, user?.photoURL);
 
