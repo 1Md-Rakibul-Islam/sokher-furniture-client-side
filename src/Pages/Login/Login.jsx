@@ -97,7 +97,9 @@ const Login = () => {
               </small>
             )}
           </div>
-          <span className="text-gray-300 underline cursor-pointer mt-3">Forget Password?</span>
+          <span className="text-gray-300 underline cursor-pointer mt-3">
+            Forget Password?
+          </span>
           <div>
             {loginError && (
               <span className="my-2 text-error">{loginError}</span>

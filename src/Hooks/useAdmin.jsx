@@ -6,7 +6,9 @@ const useAdmin = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/users/admin/${email}`)
+      fetch(
+        `https://sokher-furniture-1md-rakibul-islam.vercel.app/users/admin/${email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data) {

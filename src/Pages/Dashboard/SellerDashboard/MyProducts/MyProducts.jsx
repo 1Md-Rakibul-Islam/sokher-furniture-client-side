@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
-import useAdUpdate from "../../../../Hooks/useAdUpdate";
 import useDelete from "../../../../Hooks/useDelete";
 import Loading from "../../../Shared/Loading/Loading";
 
@@ -16,7 +15,9 @@ const MyProducts = () => {
   } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
-      const res = await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/seller/products?email=${user.email}`);
+      const res = await fetch(
+        `https://sokher-furniture-1md-rakibul-islam.vercel.app/seller/products?email=${user.email}`
+      );
       const data = await res.json();
       return data;
     },
@@ -31,9 +32,12 @@ const MyProducts = () => {
       return <Loading></Loading>;
     }
 
-    fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/seller/advertising/product/${_id}`, {
-      method: "PUT",
-    })
+    fetch(
+      `https://sokher-furniture-1md-rakibul-islam.vercel.app/seller/advertising/product/${_id}`,
+      {
+        method: "PUT",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -44,10 +48,11 @@ const MyProducts = () => {
       });
   };
 
-  // _id , category, name, photo, location, originalPrice, reselPrice, useDuration, decription, sellerEmail, publish
   return (
     <div>
-      <h2 className="text-center text-3xl my-5">My Products: {products.length}</h2>
+      <h2 className="text-center text-3xl my-5">
+        My Products: {products.length}
+      </h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
@@ -81,7 +86,12 @@ const MyProducts = () => {
                 <td>{product.status}</td>
                 <td>
                   {!product?.advertising && (
-                    <button onClick={() => handelAdvertisigProduct(product._id, refetch)} className="btn btn-sm btn-success">
+                    <button
+                      onClick={() =>
+                        handelAdvertisigProduct(product._id, refetch)
+                      }
+                      className="btn btn-sm btn-success"
+                    >
                       Advertising
                     </button>
                   )}
@@ -92,7 +102,10 @@ const MyProducts = () => {
                   )}
                 </td>
                 <td>
-                  <button onClick={() => useDelete(product._id, refetch)} className="btn btn-sm btn-error">
+                  <button
+                    onClick={() => useDelete(product._id, refetch)}
+                    className="btn btn-sm btn-error"
+                  >
                     Delete
                   </button>
                 </td>

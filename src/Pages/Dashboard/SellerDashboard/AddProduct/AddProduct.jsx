@@ -91,7 +91,6 @@ const AddProduct = () => {
       publish,
       status: "available",
       AdStatus: "no advertising",
-      
     };
 
     // console.log( 'saveUser', user);
@@ -118,7 +117,6 @@ const AddProduct = () => {
       <h1 className="text-center text-3xl my-5 font-bold">Add Product</h1>
       <div className="hero-content mx-auto">
         <div className="card w-full shadow-2xl bg-base-500">
-          
           <form onSubmit={handleSubmit(handelAddProduct)} className="card-body">
             <div className=" grid gap-3 grid-cols-1 md:grid-cols-3">
               <div className="form-control">
@@ -133,7 +131,11 @@ const AddProduct = () => {
                   placeholder="Product name"
                   className="input input-bordered"
                 />
-                {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
+                {errors?.name && (
+                  <small className="text-error mt-2">
+                    {errors.name?.message}
+                  </small>
+                )}
               </div>
 
               <div className="form-control">
@@ -149,7 +151,11 @@ const AddProduct = () => {
                   defaultValue={user.displayName}
                   className="input input-bordered"
                 />
-                {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
+                {errors?.name && (
+                  <small className="text-error mt-2">
+                    {errors.name?.message}
+                  </small>
+                )}
               </div>
 
               <div className="form-control ">
@@ -165,7 +171,11 @@ const AddProduct = () => {
                   placeholder="photo"
                   className="file-input file-input-bordered"
                 />
-                {errors?.email && <small className="text-error mt-2">{errors.email?.message}</small>}
+                {errors?.email && (
+                  <small className="text-error mt-2">
+                    {errors.email?.message}
+                  </small>
+                )}
               </div>
 
               <div className="form-control ">
@@ -186,7 +196,11 @@ const AddProduct = () => {
                   <option value="Office">Office</option>
                   <option value="Bedroom">Dining & Kitchen</option>
                 </select>
-                {errors?.email && <small className="text-error mt-2">{errors.email?.message}</small>}
+                {errors?.email && (
+                  <small className="text-error mt-2">
+                    {errors.email?.message}
+                  </small>
+                )}
               </div>
 
               <div className="form-control ">
@@ -206,7 +220,11 @@ const AddProduct = () => {
                   <option value="Excellent">Excellent</option>
                   <option value="Fair">Fair</option>
                 </select>
-                {errors?.email && <small className="text-error mt-2">{errors.email?.message}</small>}
+                {errors?.email && (
+                  <small className="text-error mt-2">
+                    {errors.email?.message}
+                  </small>
+                )}
               </div>
 
               <div className="form-control">
@@ -221,7 +239,11 @@ const AddProduct = () => {
                   placeholder="location"
                   className="input input-bordered"
                 />
-                {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
+                {errors?.name && (
+                  <small className="text-error mt-2">
+                    {errors.name?.message}
+                  </small>
+                )}
               </div>
 
               <div className="form-control">
@@ -236,7 +258,11 @@ const AddProduct = () => {
                   placeholder="amount"
                   className="input input-bordered"
                 />
-                {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
+                {errors?.name && (
+                  <small className="text-error mt-2">
+                    {errors.name?.message}
+                  </small>
+                )}
               </div>
 
               <div className="form-control">
@@ -251,7 +277,11 @@ const AddProduct = () => {
                   placeholder="amount"
                   className="input input-bordered"
                 />
-                {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
+                {errors?.name && (
+                  <small className="text-error mt-2">
+                    {errors.name?.message}
+                  </small>
+                )}
               </div>
 
               <div className="form-control">
@@ -266,7 +296,11 @@ const AddProduct = () => {
                   placeholder="duration"
                   className="input input-bordered"
                 />
-                {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
+                {errors?.name && (
+                  <small className="text-error mt-2">
+                    {errors.name?.message}
+                  </small>
+                )}
               </div>
 
               <div className="form-control">
@@ -283,7 +317,11 @@ const AddProduct = () => {
                   defaultValue={user?.email}
                   className="input input-bordered"
                 />
-                {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
+                {errors?.name && (
+                  <small className="text-error mt-2">
+                    {errors.name?.message}
+                  </small>
+                )}
               </div>
 
               <div className="form-control">
@@ -300,7 +338,11 @@ const AddProduct = () => {
                   defaultValue={currentDate}
                   className="input input-bordered"
                 />
-                {errors?.name && <small className="text-error mt-2">{errors.name?.message}</small>}
+                {errors?.name && (
+                  <small className="text-error mt-2">
+                    {errors.name?.message}
+                  </small>
+                )}
               </div>
             </div>
             <div className="form-control">

@@ -14,9 +14,11 @@ const NewArrivals = () => {
   } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await fetch("https://sokher-furniture-1md-rakibul-islam.vercel.app/products");
+      const res = await fetch(
+        "https://sokher-furniture-1md-rakibul-islam.vercel.app/products"
+      );
       const data = await res.json();
-      return data?.reverse().slice(data?.length - 7, data?.length - 1)
+      return data?.reverse().slice(data?.length - 7, data?.length - 1);
     },
   });
 
@@ -29,7 +31,6 @@ const NewArrivals = () => {
     setProduct(product);
     // useBooking Hook fetch
     // refetch();
-    
   };
 
   return (
@@ -38,7 +39,11 @@ const NewArrivals = () => {
       {/* <SectionHeader>Tending Products</SectionHeader> */}
       <div className="grid justify-items-center gap-5 my-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         {products.map((product) => (
-          <ProductCard key={product._id} product={product} handelBooking={handelBooking}></ProductCard>
+          <ProductCard
+            key={product._id}
+            product={product}
+            handelBooking={handelBooking}
+          ></ProductCard>
         ))}
         <div>{product && <BookingModal product={product}></BookingModal>}</div>
       </div>

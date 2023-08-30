@@ -1,6 +1,5 @@
+import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import toast from "react-hot-toast";
-import React, { useContext } from "react";
 import Loading from "../../../Shared/Loading/Loading";
 import useDelete from "../../../../Hooks/useDelete";
 
@@ -12,7 +11,9 @@ const ReportedItems = () => {
   } = useQuery({
     queryKey: ["reportedProducts"],
     queryFn: async () => {
-      const res = await fetch("https://sokher-furniture-1md-rakibul-islam.vercel.app/product/report");
+      const res = await fetch(
+        "https://sokher-furniture-1md-rakibul-islam.vercel.app/product/report"
+      );
       const data = await res.json();
       return data;
     },
@@ -29,16 +30,21 @@ const ReportedItems = () => {
   };
 
   const reportDelete = (reportId) => {
-    fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/product/report/${reportId}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://sokher-furniture-1md-rakibul-islam.vercel.app/product/report/${reportId}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {});
   };
 
   return (
     <div>
-      <h2 className="text-center text-3xl my-5">Reported Products: {reportedProducts.length}</h2>
+      <h2 className="text-center text-3xl my-5">
+        Reported Products: {reportedProducts.length}
+      </h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
@@ -77,7 +83,15 @@ const ReportedItems = () => {
                   <h5>{product.repoterEmail}</h5>
                 </td>
                 <td>
-                  <button onClick={() => handleDeleteRepotedProduct(product.reportedProductId, product._id)} className="btn btn-sm btn-error">
+                  <button
+                    onClick={() =>
+                      handleDeleteRepotedProduct(
+                        product.reportedProductId,
+                        product._id
+                      )
+                    }
+                    className="btn btn-sm btn-error"
+                  >
                     Delete
                   </button>
                 </td>

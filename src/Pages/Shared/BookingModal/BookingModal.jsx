@@ -3,13 +3,13 @@ import { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
-//
+
 const BookingModal = ({ product }) => {
   const { _id, name, photo, reselPrice, sellerEmail } = product;
 
   const { user } = useContext(AuthContext);
 
-  const navigate = useNavigate('/dashboard/buyer/myOrders')
+  const navigate = useNavigate("/dashboard/buyer/myOrders");
 
   const handelBooking = (event) => {
     event.preventDefault();
@@ -59,7 +59,10 @@ const BookingModal = ({ product }) => {
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box">
-          <label htmlFor="booking-modal" className="btn btn-sm btn-circle btn-primary absolute right-2 top-2">
+          <label
+            htmlFor="booking-modal"
+            className="btn btn-sm btn-circle btn-primary absolute right-2 top-2"
+          >
             <span className="text-white">✕</span>
           </label>
           <form onSubmit={handelBooking} className="">
@@ -68,7 +71,13 @@ const BookingModal = ({ product }) => {
                 {" "}
                 <span>Product Name</span>
               </label>
-              <input name="name" type="text" disabled value={name} className="input input-bordered w-full" />
+              <input
+                name="name"
+                type="text"
+                disabled
+                value={name}
+                className="input input-bordered w-full"
+              />
             </div>
             <div className="form-control w-full mt-1">
               <label htmlFor="label">
@@ -118,14 +127,24 @@ const BookingModal = ({ product }) => {
                 {" "}
                 <span>Phone</span>
               </label>
-              <input name="buyerPhoneNumber" type="number" placeholder="Your phone number" className="input input-bordered w-full" />
+              <input
+                name="buyerPhoneNumber"
+                type="number"
+                placeholder="Your phone number"
+                className="input input-bordered w-full"
+              />
             </div>
             <div className="form-control w-full mt-1">
               <label htmlFor="label">
                 {" "}
                 <span>Location</span>
               </label>
-              <input name="buyerLocation" type="text" placeholder="Your location" className="input input-bordered w-full" />
+              <input
+                name="buyerLocation"
+                type="text"
+                placeholder="Your location"
+                className="input input-bordered w-full"
+              />
             </div>
 
             <button type="submit" className="btn mt-2 btn-primary w-full">

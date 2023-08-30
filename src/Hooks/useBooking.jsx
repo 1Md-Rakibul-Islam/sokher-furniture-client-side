@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 
 const useSeller = (_id) => {
   const [isBooking, setIsBooking] = useState(false);
@@ -7,7 +6,9 @@ const useSeller = (_id) => {
 
   useEffect(() => {
     if (_id) {
-      fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/bookings/${_id}`)
+      fetch(
+        `https://sokher-furniture-1md-rakibul-islam.vercel.app/bookings/${_id}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data) {

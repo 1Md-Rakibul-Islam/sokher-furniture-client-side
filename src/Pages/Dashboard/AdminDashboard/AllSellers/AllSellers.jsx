@@ -12,7 +12,9 @@ const AllSellers = () => {
   } = useQuery({
     queryKey: ["sellers"],
     queryFn: async () => {
-      const res = await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/sellers`);
+      const res = await fetch(
+        `https://sokher-furniture-1md-rakibul-islam.vercel.app/sellers`
+      );
       const data = await res.json();
       return data;
     },
@@ -23,9 +25,12 @@ const AllSellers = () => {
   }
 
   const handleVerify = (_id, refetch) => {
-    fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/sellers/verify/${_id}`, {
-      method: "PUT",
-    })
+    fetch(
+      `https://sokher-furniture-1md-rakibul-islam.vercel.app/sellers/verify/${_id}`,
+      {
+        method: "PUT",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -34,12 +39,14 @@ const AllSellers = () => {
           refetch();
         }
       });
-    console.log(_id);
+    // console.log(_id);
   };
 
   return (
     <div>
-      <h2 className="text-center text-3xl my-5">All Sellers: {sellers.length}</h2>
+      <h2 className="text-center text-3xl my-5">
+        All Sellers: {sellers.length}
+      </h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
@@ -54,7 +61,7 @@ const AllSellers = () => {
             </tr>
           </thead>
           <tbody>
-            {sellers.map((seller, i) => (
+            {sellers?.map((seller, i) => (
               <tr>
                 <th>{1 + i}</th>
                 <th>
@@ -62,7 +69,9 @@ const AllSellers = () => {
                     <div className="w-24 rounded-full">
                       <img src={seller.userImage} />
                     </div>
-                    {seller?.verified && <FaCheckCircle className="text-xl text-blue-400"></FaCheckCircle>}
+                    {seller?.verified && (
+                      <FaCheckCircle className="text-xl text-blue-400"></FaCheckCircle>
+                    )}
                   </div>
                 </th>
                 <td>{seller.userName}</td>
@@ -71,13 +80,19 @@ const AllSellers = () => {
                   {seller?.verified === true ? (
                     ""
                   ) : (
-                    <button onClick={() => handleVerify(seller._id, refetch)} className="btn btn-sm btn-success">
+                    <button
+                      onClick={() => handleVerify(seller._id, refetch)}
+                      className="btn btn-sm btn-success"
+                    >
                       Verify
                     </button>
                   )}
                 </td>
                 <td>
-                  <button onClick={() => useDeleteUser(seller._id)} className="btn btn-sm btn-error">
+                  <button
+                    onClick={() => useDeleteUser(seller._id)}
+                    className="btn btn-sm btn-error"
+                  >
                     Delete
                   </button>
                 </td>

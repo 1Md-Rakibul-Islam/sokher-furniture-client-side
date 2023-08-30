@@ -254,9 +254,9 @@ const SignUp = () => {
                 value="Sign Up"
               />
               <p>
-                Alredy have an account? 
+                Alredy have an account?
                 <Link className="text-blue-600 ml-2 underline" to="/login">
-                   Plase Login
+                  Plase Login
                 </Link>
               </p>
             </div>

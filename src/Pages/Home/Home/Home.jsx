@@ -1,7 +1,5 @@
 import React from "react";
-import { productsAPI } from "../../../API/Products";
 import Discount from "../../../Components/Discount";
-import ItemsSection from "../../../Components/ItemsSection";
 import Advertisig from "../Advertisig/Advertisig";
 import Banner from "../Banner/Banner";
 import CategoryCardSection from "../CategoryCardSection/CategoryCardSection";
@@ -15,11 +13,6 @@ import FetureBanner from "./FetureBanner/FetureBanner";
 import JustForYou from "./JustForYou/JustForYou";
 
 const Home = () => {
-  // {products, isLoading, refetch , itemsCategory}
-
-  const Products = productsAPI();
-  console.log(Products);
-
   return (
     <div className="lg:px-10 bg-gray-50">
       <Banner />

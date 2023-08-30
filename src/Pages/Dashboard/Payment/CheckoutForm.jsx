@@ -16,13 +16,16 @@ const CheckoutForm = ({ order }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("https://sokher-furniture-1md-rakibul-islam.vercel.app/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ reselPrice }),
-    })
+    fetch(
+      "https://sokher-furniture-1md-rakibul-islam.vercel.app/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ reselPrice }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, [reselPrice]);
@@ -52,15 +55,16 @@ const CheckoutForm = ({ order }) => {
     }
     setSuccess("");
     setProcessing(true);
-    const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: card,
-        billing_details: {
-          name: buyerName,
-          email: email,
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: buyerName,
+            email: email,
+          },
         },
-      },
-    });
+      });
 
     if (confirmError) {
       setCardError(confirmError.message);
@@ -114,7 +118,11 @@ const CheckoutForm = ({ order }) => {
             },
           }}
         />
-        <button className="btn btn-sm mt-4 btn-primary" type="submit" disabled={!stripe && !clientSecret && processing}>
+        <button
+          className="btn btn-sm mt-4 btn-primary"
+          type="submit"
+          disabled={!stripe && !clientSecret && processing}
+        >
           Pay
         </button>
       </form>

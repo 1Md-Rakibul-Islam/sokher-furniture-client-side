@@ -1,13 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import useDeleteUser from "../../../../Hooks/useDeleteUser";
-import useAdmin from "../../../../Hooks/useAdmin";
 import Loading from "../../../Shared/Loading/Loading";
-import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
 
 const AllUsers = () => {
-  // 'https://sokher-furniture-1md-rakibul-islam.vercel.app/users'
-
   const {
     data: users = [],
     isLoading,
@@ -15,7 +11,9 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/users`);
+      const res = await fetch(
+        `https://sokher-furniture-1md-rakibul-islam.vercel.app/users`
+      );
       const data = await res.json();
       return data;
     },
@@ -28,7 +26,6 @@ const AllUsers = () => {
   return (
     <div>
       <h2 className="text-center text-3xl my-5">All Users: {users.length}</h2>
-
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
@@ -60,7 +57,10 @@ const AllUsers = () => {
                   {user.role === "admin" ? (
                     ""
                   ) : (
-                    <button onClick={() => useDeleteUser(user._id, refetch)} className="btn btn-sm btn-error">
+                    <button
+                      onClick={() => useDeleteUser(user._id, refetch)}
+                      className="btn btn-sm btn-error"
+                    >
                       Delete
                     </button>
                   )}

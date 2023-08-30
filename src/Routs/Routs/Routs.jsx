@@ -35,7 +35,10 @@ export const router = createBrowserRouter([
       },
       {
         path: "/categories/:categoriyName",
-        loader: async ({ params }) => await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/categories/${params.categoriyName}`),
+        loader: async ({ params }) =>
+          await fetch(
+            `https://sokher-furniture-1md-rakibul-islam.vercel.app/categories/${params.categoriyName}`
+          ),
         element: <Categories></Categories>,
       },
       {
@@ -44,7 +47,10 @@ export const router = createBrowserRouter([
       },
       {
         path: "/:_id",
-        loader: async ({params}) => await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/products/${params._id}`),
+        loader: async ({ params }) =>
+          await fetch(
+            `https://sokher-furniture-1md-rakibul-islam.vercel.app/products/${params._id}`
+          ),
         element: <ProductDetails></ProductDetails>,
       },
       {
@@ -151,7 +157,10 @@ export const router = createBrowserRouter([
             <Payment></Payment>
           </BuyerRoute>
         ),
-        loader: ({ params }) => fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/dashboard/bookings/pay/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://sokher-furniture-1md-rakibul-islam.vercel.app/dashboard/bookings/pay/${params.id}`
+          ),
       },
     ],
   },

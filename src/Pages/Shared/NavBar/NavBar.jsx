@@ -17,29 +17,53 @@ const NavBar = () => {
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
             </svg>
           </label>
-          <ul tabIndex={1} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+          <ul
+            tabIndex={1}
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
             <li>
               <Link to={"/"}>Home</Link>
             </li>
             <li>
-                <a>
+              <a>
                 Categories
-                  <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-                </a>
-                <ul className="p-6 gap-2 bg-base-100 z-100">
-                  <Link to={'/categories/Bedroom'}>Bedroom</Link>
-                  <Link to={'/categories/Office'}>Office</Link>
-                  <Link to={'/categories/Dining%20&%20Kitchen'}>Dining Kichen</Link>
-                </ul>
-              </li>
+                <svg
+                  className="fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+              </a>
+              <ul className="p-6 gap-2 bg-base-100 z-100">
+                <Link to={"/categories/Bedroom"}>Bedroom</Link>
+                <Link to={"/categories/Office"}>Office</Link>
+                <Link to={"/categories/Dining%20&%20Kitchen"}>
+                  Dining Kichen
+                </Link>
+              </ul>
+            </li>
 
-              <li>
-                <Link to={"/products"}>Products</Link>
-              </li>
+            <li>
+              <Link to={"/products"}>Products</Link>
+            </li>
 
             {user?.email ? (
               <>
@@ -60,7 +84,6 @@ const NavBar = () => {
                 </li>
               </>
             )}
-
           </ul>
         </div>
         <Brand />
@@ -71,25 +94,33 @@ const NavBar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li>
-                <a>
-                  Categories
-                  <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-                </a>
-                <ul className="p-5 bg-base-100 z-100">
-                  <Link to={'/categories/Bedroom'}>Bedroom</Link>
-                  <Link to={'/categories/Office'}>Office</Link>
-                  <Link to={'/categories/Dining%20&%20Kitchen'}>Dining Kichen</Link>
-                </ul>
-              </li>
+            <a>
+              Categories
+              <svg
+                className="fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+              >
+                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+              </svg>
+            </a>
+            <ul className="p-5 bg-base-100 z-100">
+              <Link to={"/categories/Bedroom"}>Bedroom</Link>
+              <Link to={"/categories/Office"}>Office</Link>
+              <Link to={"/categories/Dining%20&%20Kitchen"}>Dining Kichen</Link>
+            </ul>
+          </li>
           <li>
             <Link to={"/products"}>Products</Link>
           </li>
 
           {user?.email ? (
             <>
-            <li>
+              <li>
                 <Link to={"/dashboard"}>Dashboard</Link>
-            </li>
+              </li>
               <li>
                 <button onClick={handelLogOut}>Logout</button>
               </li>
@@ -109,11 +140,22 @@ const NavBar = () => {
       <div className="navbar-end">
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">{user?.email ? <img src={user?.photoURL} /> : <FaUser className="text-3xl text-center"></FaUser>}</div>
+            <div className="w-10 rounded-full">
+              {user?.email ? (
+                <img src={user?.photoURL} />
+              ) : (
+                <FaUser className="text-3xl text-center"></FaUser>
+              )}
+            </div>
           </label>
-          <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+          <ul
+            tabIndex={0}
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
             <li>
-                <Link to={"/dashboard"}><a className="justify-between">Profile</a></Link>
+              <Link to={"/dashboard"}>
+                <a className="justify-between">Profile</a>
+              </Link>
             </li>
             <li>
               <a className="justify-between">{user?.displayName}</a>

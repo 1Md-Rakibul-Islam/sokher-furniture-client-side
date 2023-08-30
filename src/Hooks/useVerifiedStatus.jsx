@@ -6,7 +6,9 @@ const useVerifiedStatus = (_id) => {
 
   useEffect(() => {
     if (_id) {
-      fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/verified/sellers/${_id}`)
+      fetch(
+        `https://sokher-furniture-1md-rakibul-islam.vercel.app/verified/sellers/${_id}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data) {

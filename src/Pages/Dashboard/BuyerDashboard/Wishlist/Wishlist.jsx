@@ -13,7 +13,9 @@ const Wishlist = () => {
   } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
-      const res = await fetch(`https://sokher-furniture-1md-rakibul-islam.vercel.app/user/orders?email=${user.email}`);
+      const res = await fetch(
+        `https://sokher-furniture-1md-rakibul-islam.vercel.app/user/orders?email=${user.email}`
+      );
       const data = await res.json();
       return data;
     },
@@ -37,18 +39,18 @@ const Wishlist = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product, i) => (
+            {products?.map((product, i) => (
               <tr>
                 <th>{1 + i}</th>
                 <th>
                   <div className="avatar">
                     <div className="w-32 h-24 rounded">
-                      <img src={product.photo} />
+                      <img src={product?.photo} />
                     </div>
                   </div>
                 </th>
-                <td>{product.name}</td>
-                <td>{product.reselPrice} TK</td>
+                <td>{product?.name}</td>
+                <td>{product?.reselPrice} TK</td>
               </tr>
             ))}
           </tbody>

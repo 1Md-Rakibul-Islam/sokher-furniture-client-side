@@ -16,7 +16,8 @@ const Footer = () => {
                   Get the latest news!
                 </h2>
                 <p className="mt-4 text-gray-500">
-                Regal Furnuter is Online Ecommerce platfrom for old furniture buy and selling. You can buy our letest collection.
+                  Regal Furnuter is Online Ecommerce platfrom for old furniture
+                  buy and selling. You can buy our letest collection.
                 </p>
               </div>
             </div>
@@ -43,27 +44,42 @@ const Footer = () => {
               <p className="font-medium text-gray-900">Services</p>
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Coaching
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Company Review
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Accounts Review
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     HR Consulting
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     SEO Optimisation
                   </a>
                 </li>
@@ -74,17 +90,26 @@ const Footer = () => {
               <p className="font-medium text-gray-900">Company</p>
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Meet the Team
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Accounts Review
                   </a>
                 </li>
@@ -96,17 +121,26 @@ const Footer = () => {
 
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Contact
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     FAQs
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Live Chat
                   </a>
                 </li>
@@ -117,22 +151,34 @@ const Footer = () => {
               <p className="font-medium text-gray-900">Legal</p>
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Accessibility
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Returns Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Refund Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Hiring Statistics
                   </a>
                 </li>
@@ -144,12 +190,18 @@ const Footer = () => {
 
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     Marketing Calendar
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
                     SEO Infographics
                   </a>
                 </li>
@@ -276,17 +328,26 @@ const Footer = () => {
 
             <ul className="mt-8 flex flex-wrap justify-start gap-4 text-xs sm:mt-0 lg:justify-end">
               <li>
-                <a href="#" className="text-gray-500 transition hover:opacity-75">
+                <a
+                  href="#"
+                  className="text-gray-500 transition hover:opacity-75"
+                >
                   Terms & Conditions
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-500 transition hover:opacity-75">
+                <a
+                  href="#"
+                  className="text-gray-500 transition hover:opacity-75"
+                >
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-500 transition hover:opacity-75">
+                <a
+                  href="#"
+                  className="text-gray-500 transition hover:opacity-75"
+                >
                   Cookies
                 </a>
               </li>
